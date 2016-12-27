@@ -2,8 +2,8 @@ import { Component, OnInit, HostBinding } from '@angular/core';
 import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from './../auth.service';
-import { NotificationsService } from './../../../../node_modules/angular2-notifications';
 import { UserService } from './../../common-services/user.service' 
+import { NotificationsService } from './../../../../node_modules/angular2-notifications';
 
 @Component({
   templateUrl: './login.component.html',

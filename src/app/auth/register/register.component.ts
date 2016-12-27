@@ -3,7 +3,7 @@ import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms'
 import { Router } from '@angular/router';
 import { NotificationsService } from './../../../../node_modules/angular2-notifications';
 
-import { AuthService } from './../../auth';
+import { AuthService } from './../../auth/auth.service';
 
 const MIN_NAME_LENGTH = 3;
 const MAX_NAME_LENGTH = 20;

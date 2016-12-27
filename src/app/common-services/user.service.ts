@@ -3,7 +3,7 @@ import { Http, Response } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
 import { Subject } from 'rxjs/Subject';
 
-import { HttpOptionsService } from './../common-services';
+import { HttpOptionsService } from './../common-services/http-options.service';
 import { AppSettings } from './../../common/AppSettings';
 
 const CONNECTION_STRING: string = AppSettings.CONNECTION_STRING;
