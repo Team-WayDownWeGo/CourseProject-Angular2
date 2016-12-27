@@ -9,7 +9,8 @@ import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 
 import { AuthService } from './auth.service';
-import { HttpOptionsService, UserService } from './../common-services';
+import { HttpOptionsService } from './../common-services/http-options.service'
+import {  UserService } from './../common-services/user.service';
 
 @NgModule({
     declarations: [ LoginComponent, RegisterComponent ],
