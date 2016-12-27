@@ -6,8 +6,7 @@ import { UserService } from './../../common-services/user.service'
 import { NotificationsService } from './../../../../node_modules/angular2-notifications';
 
 @Component({
-  templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css']
+  templateUrl: './login.component.html'
 })
 export class LoginComponent implements OnInit {
   @HostBinding('class') public classes = 'signup-page';

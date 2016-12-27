@@ -52,6 +52,7 @@ export class AuthService {
     }
 
     public registerUser(data: Object): Observable<any> {
+        console.log('here');
         let userToCreate: string = JSON.stringify(data);
         let options: RequestOptions = this._httpOptionsService.getRequestOptions(true);
         return this._http

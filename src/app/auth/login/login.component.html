@@ -1,3 +1,33 @@
-<p>
-  register works!
-</p>
+<div class="header header-filter" style="background-image: url('http://www.mrwallpaper.com/wallpapers/eiffel-tower-background.jpg');">
+<div class="container">
+  <div class="row">
+    <div class="col-md-8 col-md-offset-7">
+      <div class="card card-signup">
+        <form [formGroup]="form" (ngSubmit)="login()">
+          <div class="header header-info text-center">
+            <h4>Sign in</h4>
+          </div>
+          <div class="content">
+            <div class="form-group label-floating" [ngClass]="{'has-error':!form.controls['username'].valid && form.controls['username'].touched}">
+              <label class="control-label" for="tb-username">Username</label>
+              <input type="text" id="tb-username" formControlName="username" class="form-control">
+              <span class="text-danger" *ngIf="!form.controls['username'].valid && form.controls['username'].touched">Username is required.</span>
+            </div>
+            <div class="form-group label-floating" [ngClass]="{'has-error':!form.controls['password'].valid && form.controls['password'].touched}">
+              <label class="control-label" for="tb-password">Password</label>
+              <input type="password" id="tb-password" formControlName="password" class="form-control">
+              <span class="text-danger" *ngIf="!form.controls['password'].valid && form.controls['password'].touched">
+										Password is required.
+									</span>
+            </div>
+          </div>
+          <div class="footer text-center">
+            <button class="btn btn-info btn-lg" type="submit" [disabled]="!form.valid">Login</button>
+          </div>
+        </form>
+        <simple-notifications [options]="options"></simple-notifications>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
