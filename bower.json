@@ -1,0 +1,28 @@
+{
+  "name": "courseproject",
+  "description": "",
+  "main": "",
+  "authors": [
+    "Todor Georgiev <todorgeorgiev96@gmail.com>"
+  ],
+  "license": "MIT",
+  "keywords": [
+    "angular2",
+    "webpack",
+    "typescript"
+  ],
+  "homepage": "https://github.com/Team-WayDownWeGo/CourseProject-Angular2",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "src/assets/",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "tinymce": "^4.5.1",
+    "material-kit": "^1.1.0"
+  }
+}
+
