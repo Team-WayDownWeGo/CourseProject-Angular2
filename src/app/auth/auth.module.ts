@@ -6,12 +6,13 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SimpleNotificationsModule, NotificationsService } from '../../../node_modules/angular2-notifications';
 
 import { LoginComponent } from './login/login.component';
+import { RegisterComponent } from './register/register.component';
 
 import { AuthService } from './auth.service';
 import { HttpOptionsService, UserService } from './../common-services';
 
 @NgModule({
-    declarations: [ LoginComponent ],
+    declarations: [ LoginComponent, RegisterComponent ],
     imports: [
         HttpModule,
         FormsModule,
