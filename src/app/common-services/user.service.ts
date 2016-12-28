@@ -25,37 +25,37 @@ export class UserService {
     this._isLoggedSubject = new Subject<boolean>();
     this._isUserUpdatedSubject = new Subject<boolean>();
     this._isUserUpdated = false;
-   }
+  }
 
-   public setIsUserLoggedIn(): void {
-     this._isLogged = !!localStorage.getItem('user');
-     this._isLoggedSubject.next(this._isLogged);
-   }
+  public setIsUserLoggedIn(): void {
+    this._isLogged = !!localStorage.getItem('user');
+    this._isLoggedSubject.next(this._isLogged);
+  }
 
-   public getUserLoggedIn(): Observable<boolean> {
-     return this._isLoggedSubject.asObservable();
-   }
+  public getUserLoggedIn(): Observable<boolean> {
+    return this._isLoggedSubject.asObservable();
+  }
 
-   public setIsUserUpdated(): void {
-     this._isUserUpdated = true;
-     this._isUserUpdatedSubject.next(this._isUserUpdated);
-     this._isUserUpdated = false;
-   }
+  public setIsUserUpdated(): void {
+    this._isUserUpdated = true;
+    this._isUserUpdatedSubject.next(this._isUserUpdated);
+    this._isUserUpdated = false;
+  }
 
-   public getIsUserUpdated(): Observable<boolean> {
-     return this._isUserUpdatedSubject.asObservable();
-   }
+  public getIsUserUpdated(): Observable<boolean> {
+    return this._isUserUpdatedSubject.asObservable();
+  }
 
-   public getUserData(userId: string): Observable<any> {
-     let url = `${USER_URL}/${userId}`;
-     return this._http.get(url).map((response: Response) => response.json());
-   }
+  public getUserData(userId: string): Observable<any> {
+    let url = `${USER_URL}/${userId}`;
+    return this._http.get(url).map((response: Response) => response.json());
+  }
 
-   public updateUserData(userId: string, userData: Object): Observable<any> {
-     let url = `${USER_URL}/${userId}`;
-     let requestOptions = this._httpOptionsService.getRequestOptions(true);
-     let data = JSON.stringify(userData);
-     return this._http.post(url, data, requestOptions).map((response: Response) => response.json());
-   }
+  public updateUserData(userId: string, userData: Object): Observable<any> {
+    let url = `${USER_URL}/${userId}`;
+    let requestOptions = this._httpOptionsService.getRequestOptions(true);
+    let data = JSON.stringify(userData);
+    return this._http.post(url, data, requestOptions).map((response: Response) => response.json());
+  }
 
 }

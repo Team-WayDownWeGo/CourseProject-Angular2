@@ -21,7 +21,9 @@ export class PublicProfileComponent implements OnInit {
 
   ngOnInit() {
     let username = this._params._value.username;
+    // TODO: get all user data and parse in html
     this._userService.getUserData(username);
+    console.log(this._userService.getUserData(username));
   }
 
 }
