@@ -6,5 +6,8 @@ import { AuthGuard } from './guard/guard';
 export const APP_ROUTES: Routes = [
     { path: 'login', component: LoginComponent },
     { path: 'register', component: RegisterComponent },
-    { path: 'profile', component: RegisterComponent, canActivate: [AuthGuard] }
+    // TODO: create profile component
+    { path: 'profile', component: RegisterComponent, canActivate: [AuthGuard] },
+    // TODO: error page. wrong urls go to homepage 
+    { path: '**', redirectTo: '' }
 ]
