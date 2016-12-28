@@ -8,6 +8,7 @@ import { AppSettings } from './../../common/AppSettings';
 
 const CONNECTION_STRING: string = AppSettings.CONNECTION_STRING;
 const USER_URL: String = `${CONNECTION_STRING}/users`;
+const SINGLE_USER_URL: String = `${CONNECTION_STRING}`;
 
 
 @Injectable()
@@ -46,8 +47,8 @@ export class UserService {
     return this._isUserUpdatedSubject.asObservable();
   }
 
-  public getUserData(userId: string): Observable<any> {
-    let url = `${USER_URL}/${userId}`;
+  public getUserData(username: string): Observable<any> {
+    let url = `${SINGLE_USER_URL}/user/${username}`;
     return this._http.get(url).map((response: Response) => response.json());
   }
 
