@@ -8,17 +8,20 @@ import { AuthModule } from './auth/auth.module';
 import { AuthService } from './auth/auth.service';
 import { UserService } from './common-services/user.service';
 import { HttpOptionsService } from './common-services/http-options.service';
+import { ForumModule, CreatePostComponent } from './forum';
+
 
 
 @NgModule({
   bootstrap: [AppComponent],
   declarations: [
-    AppComponent,
+    AppComponent
   ],
   imports: [
     BrowserModule,
     RouterModule.forRoot(APP_ROUTES),
-    AuthModule
+    AuthModule,
+    ForumModule
   ],
   providers: [AuthService, UserService, HttpOptionsService],
 })
