@@ -46,6 +46,7 @@ export class CreatePostComponent implements OnInit {
                     this._notificationService.error('Error', `${response.message.text}`);
                 } else {
                     this._notificationService.success('Success.', `Thread is created.`);
+                    console.log(response.id);
                    // setTimeout(() => this._router.navigateByUrl('/forum'), 1500);
                 }
             },

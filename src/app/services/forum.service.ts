@@ -32,8 +32,6 @@ export class ForumService {
   }
 
   createPost(post): Observable<any> {
-    console.log('in service');
-    console.log(post);
    return this.http.post(
       `${this.api_url}/create`,
       JSON.stringify(post),

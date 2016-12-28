@@ -10,12 +10,15 @@ import { UserService } from './common-services/user.service';
 import { HttpOptionsService } from './common-services/http-options.service';
 import { ForumModule, CreatePostComponent } from './forum';
 
+import { AuthGuard } from './guard/guard';
+import { PublicProfileComponent } from './users/public-profile/public-profile/public-profile.component';
 
 
 @NgModule({
   bootstrap: [AppComponent],
   declarations: [
-    AppComponent
+    AppComponent,
+    PublicProfileComponent,
   ],
   imports: [
     BrowserModule,
@@ -23,6 +26,6 @@ import { ForumModule, CreatePostComponent } from './forum';
     AuthModule,
     ForumModule
   ],
-  providers: [AuthService, UserService, HttpOptionsService],
+  providers: [AuthService, UserService, HttpOptionsService, AuthGuard],
 })
 export class AppModule { }
