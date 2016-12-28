@@ -8,6 +8,7 @@ import { AuthModule } from './auth/auth.module';
 import { AuthService } from './auth/auth.service';
 import { UserService } from './common-services/user.service';
 import { HttpOptionsService } from './common-services/http-options.service';
+import { AuthGuard } from './guard/guard';
 
 
 @NgModule({
@@ -20,6 +21,6 @@ import { HttpOptionsService } from './common-services/http-options.service';
     RouterModule.forRoot(APP_ROUTES),
     AuthModule
   ],
-  providers: [AuthService, UserService, HttpOptionsService],
+  providers: [AuthService, UserService, HttpOptionsService, AuthGuard],
 })
 export class AppModule { }
