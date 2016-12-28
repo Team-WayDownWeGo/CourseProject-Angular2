@@ -11,14 +11,17 @@ import { UserService } from './../../../common-services/user.service';
 export class PublicProfileComponent implements OnInit {
   private _route;
   private _params;
+  private _userService;
 
-  constructor(route: ActivatedRoute) {
+  constructor(route: ActivatedRoute, userService: UserService) {
     this._route = route;
     this._params = route.params;
+    this._userService = userService;
   }
 
   ngOnInit() {
-    console.log(this._params._value.username);
+    let username = this._params._value.username;
+    this._userService.getUserData(username);
   }
 
 }

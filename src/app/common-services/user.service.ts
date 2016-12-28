@@ -7,7 +7,7 @@ import { HttpOptionsService } from './../common-services/http-options.service';
 import { AppSettings } from './../../common/AppSettings';
 
 const CONNECTION_STRING: string = AppSettings.CONNECTION_STRING;
-const USER_URL: string = `${CONNECTION_STRING}/users`;
+const USER_URL: String = `${CONNECTION_STRING}/users`;
 
 
 @Injectable()
