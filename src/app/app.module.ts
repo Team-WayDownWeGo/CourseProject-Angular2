@@ -9,12 +9,14 @@ import { AuthService } from './auth/auth.service';
 import { UserService } from './common-services/user.service';
 import { HttpOptionsService } from './common-services/http-options.service';
 import { AuthGuard } from './guard/guard';
+import { PublicProfileComponent } from './users/public-profile/public-profile/public-profile.component';
 
 
 @NgModule({
   bootstrap: [AppComponent],
   declarations: [
     AppComponent,
+    PublicProfileComponent,
   ],
   imports: [
     BrowserModule,
