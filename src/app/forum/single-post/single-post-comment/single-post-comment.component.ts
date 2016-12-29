@@ -11,8 +11,7 @@ import { NotificationsService } from './../../../../../node_modules/angular2-not
 export class SinglePostCommentComponent implements OnInit {
 
  @Input() comment: any;
- @Input() 
- @Output() like = new EventEmitter();
+
   constructor(private _forumService: ForumService, private _notificationService: NotificationsService) { }
 
   ngOnInit() {

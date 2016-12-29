@@ -12,6 +12,7 @@ export class ListPostsComponent implements OnInit {
 
   public posts: any[];
   private page: number;
+  private sub: any;
   constructor(private _service: ForumService,
      private _notificationService: NotificationsService,
      private _route: ActivatedRoute) { 
@@ -19,14 +20,20 @@ export class ListPostsComponent implements OnInit {
   }
 
   ngOnInit() {
+  this.sub = this._route.params.subscribe(params => {
+       this.page = params['page'];
+    });
+
     this._service
       .getAllPosts(this.page)
       .subscribe(response => {
+                    console.log(this.posts);
+                    console.log(response);
                 if (response.message === 'error') {
                     this._notificationService.error('Error', `${response.message.text}`);
                 } else {
-                    console.log(response.id);
                     this.posts = response;
+                    console.log(this.posts);
                 }
             },
             err => console.log(err));

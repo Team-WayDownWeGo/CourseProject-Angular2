@@ -9,9 +9,9 @@ import { ForumService } from '../services/forum.service';
 import { SinglePostComponent } from './single-post/single-post.component';
 import { PostRowComponent } from './list-posts/post-row/post-row.component';
 import { ListPostsComponent } from './list-posts/list-posts.component';
-
+import { PaginationComponent } from './list-posts/pagination/pagination.component';
 import { SinglePostCommentComponent } from './single-post/single-post-comment/single-post-comment.component';
-
+import { ToNumberArrayPaginationPipe } from '../pipes/transform-to-array.pipe';
 
 @NgModule({
   imports: [
@@ -20,7 +20,7 @@ import { SinglePostCommentComponent } from './single-post/single-post-comment/si
      FormsModule,
       ReactiveFormsModule
   ],
-  declarations: [ CreatePostComponent, SinglePostComponent, SinglePostCommentComponent, PostRowComponent, ListPostsComponent ],
+  declarations: [ CreatePostComponent, SinglePostComponent, SinglePostCommentComponent, PostRowComponent, ListPostsComponent, ToNumberArrayPaginationPipe ],
   providers: [ForumService, NotificationsService]
 })
 export class ForumModule { }

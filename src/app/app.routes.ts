@@ -1,7 +1,7 @@
 import { Routes } from '@angular/router';
 
 import { RegisterComponent, LoginComponent } from './auth';
-import { CreatePostComponent, SinglePostComponent } from './forum';
+import { CreatePostComponent, SinglePostComponent, ListPostsComponent } from './forum';
 import { AuthGuard } from './guard/guard';
 import { PublicProfileComponent } from './users/public-profile/public-profile/public-profile.component';
 
@@ -9,7 +9,8 @@ export const APP_ROUTES: Routes = [
     { path: 'login', component: LoginComponent },
     { path: 'register', component: RegisterComponent },
     { path: 'forum/create', component: CreatePostComponent},
-    { path: 'forum/:id', component: SinglePostComponent},
+    { path: 'forum/post/:id', component: SinglePostComponent},
+    { path: 'forum/:page', component: ListPostsComponent},
     
     // TODO: create profile component
     { path: 'profile', component: RegisterComponent, canActivate: [AuthGuard] },

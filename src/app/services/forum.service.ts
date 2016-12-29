@@ -101,12 +101,19 @@ export class ForumService {
   }
 
   unLikeComment({postId, commentId}): Observable<any> {
-    console.log(postId);
-    console.log(commentId);
-    
     return this.http.put(
       `${this.api_url}/${postId}/comment/${commentId}/unlike`,
       null,
+      { headers: this.headers }
+    )
+    .map(this.checkForError)
+    .catch(err => Observable.throw(err))
+    .map(this.getJson)
+  }
+
+  getAllPosts(page): Observable<any> {
+     return this.http.get(
+      `${this.api_url}/${page}`,
       { headers: this.headers }
     )
     .map(this.checkForError)
