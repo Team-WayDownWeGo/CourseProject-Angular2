@@ -7,6 +7,7 @@ import { RouterModule } from '@angular/router';
 import { CreatePostComponent } from './create-post/create-post.component';
 import { ForumService } from '../services/forum.service';
 import { SinglePostComponent } from './single-post/single-post.component';
+import { SinglePostCommentComponent } from './single-post/single-post-comment/single-post-comment.component';
 
 
 @NgModule({
@@ -16,7 +17,7 @@ import { SinglePostComponent } from './single-post/single-post.component';
      FormsModule,
       ReactiveFormsModule
   ],
-  declarations: [ CreatePostComponent, SinglePostComponent ],
+  declarations: [ CreatePostComponent, SinglePostComponent, SinglePostCommentComponent ],
   providers: [ForumService, NotificationsService]
 })
 export class ForumModule { }
