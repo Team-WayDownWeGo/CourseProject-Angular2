@@ -23,15 +23,16 @@
             </thead>
             <tbody></tbody>
             <tbody>
-              <app-post-row
-                *ngFor = "let post of posts"
-                [post] = "post"
-              ></app-post-row>
-                
+                <app-post-row *ngFor="let post of postsInfo.posts" [post]="post"></app-post-row>
+
             </tbody>
         </table>
     </div>
     <ul class="pagination">
-        <li><a class="disabled" href="/forum?page=1">1</a></li>
+        <!--<li><a class="disabled" href="/forum?page=1">1</a></li>-->
+        <app-pagination *ngFor="let page of postsInfo.pageCount | toNumberArray" [page]="page">
+        </app-pagination>
     </ul>
 </div>
+
+<!--ul.pagination - for(let i = 1; i <=r esult.params.pages; i+=1 ) li if result.params.page===i a.disabled(href="/forum?page=" + i)=i else a(href="/forum?page=" + i)=i-->

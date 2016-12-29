@@ -10,13 +10,13 @@ import { Router, ActivatedRoute } from '@angular/router';
 })
 export class ListPostsComponent implements OnInit {
 
-  public posts: any[];
+  public postsInfo: any;
   private page: number;
   private sub: any;
   constructor(private _service: ForumService,
      private _notificationService: NotificationsService,
      private _route: ActivatedRoute) { 
-    this.posts = [];
+    this.postsInfo = {};
   }
 
   ngOnInit() {
@@ -27,13 +27,14 @@ export class ListPostsComponent implements OnInit {
     this._service
       .getAllPosts(this.page)
       .subscribe(response => {
-                    console.log(this.posts);
+                  
                     console.log(response);
                 if (response.message === 'error') {
                     this._notificationService.error('Error', `${response.message.text}`);
                 } else {
-                    this.posts = response;
-                    console.log(this.posts);
+                    this.postsInfo.posts = response.forumPosts;
+                    this.postsInfo.pageCount = response.pageCount;
+                    // console.log(this.posts);
                 }
             },
             err => console.log(err));

@@ -20,7 +20,7 @@ import { ToNumberArrayPaginationPipe } from '../pipes/transform-to-array.pipe';
      FormsModule,
       ReactiveFormsModule
   ],
-  declarations: [ CreatePostComponent, SinglePostComponent, SinglePostCommentComponent, PostRowComponent, ListPostsComponent, ToNumberArrayPaginationPipe ],
+  declarations: [ PaginationComponent, CreatePostComponent, SinglePostComponent, SinglePostCommentComponent, PostRowComponent, ListPostsComponent, ToNumberArrayPaginationPipe ],
   providers: [ForumService, NotificationsService]
 })
 export class ForumModule { }
