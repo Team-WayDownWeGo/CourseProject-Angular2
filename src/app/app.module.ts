@@ -15,6 +15,8 @@ import { ForumModule, CreatePostComponent } from './forum';
 
 import { AuthGuard } from './guard/guard';
 import { PublicProfileComponent } from './users/public-profile/public-profile/public-profile.component';
+import { ListPostsComponent } from './list-posts/list-posts.component';
+import { PostRowComponent } from './post-row/post-row.component';
 // import { SinglePostComponent } from './forum/single-post/single-post.component';
 // import { SinglePostCommentComponent } from './forum/single-post/single-post-comment/single-post-comment.component';
 
@@ -24,6 +26,8 @@ import { PublicProfileComponent } from './users/public-profile/public-profile/pu
   declarations: [
     AppComponent,
     PublicProfileComponent,
+    ListPostsComponent,
+    PostRowComponent,
     // SinglePostComponent,
     // SinglePostCommentComponent,
   ],

@@ -1,0 +1,37 @@
+<div class="container" style="margin-top: 35px">
+    <div class="page-header page-heading">
+        <h1 class="pull-left">Forum</h1>
+        <div class="clearfix"></div>
+    </div>
+    <p class="lead">This is the right place to discuss any upcoming competitions or ideas for new ones. Feel free to leave any suggestions for the future development of <i>Conquer Bulgaria.</i></p>
+    <div class="table-responsive">
+        <table class="table forum table-striped">
+            <thead>
+                <tr>
+                    <th class="cell-stat"></th>
+                    <th>
+                        <h3>Posts</h3>
+                    </th>
+                    <th class="cell-stat text-center hidden-xs hidden-sm">
+                        <h4>Created by</h4>
+                    </th>
+                    <th class="cell-stat text-center hidden-xs hidden-sm">
+                        <h4>Answers</h4>
+                    </th>
+                    <th class="cell-stat-2x hidden-xs hidden-sm"></th>
+                </tr>
+            </thead>
+            <tbody></tbody>
+            <tbody>
+              <app-post-row
+                *ngFor = "let post of posts"
+                [post] = "post"
+              ></app-post-row>
+                
+            </tbody>
+        </table>
+    </div>
+    <ul class="pagination">
+        <li><a class="disabled" href="/forum?page=1">1</a></li>
+    </ul>
+</div>

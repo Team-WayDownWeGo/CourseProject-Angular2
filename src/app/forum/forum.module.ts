@@ -7,6 +7,9 @@ import { RouterModule } from '@angular/router';
 import { CreatePostComponent } from './create-post/create-post.component';
 import { ForumService } from '../services/forum.service';
 import { SinglePostComponent } from './single-post/single-post.component';
+import { PostRowComponent } from './list-posts/post-row/post-row.component';
+import { ListPostsComponent } from './list-posts/list-posts.component';
+
 import { SinglePostCommentComponent } from './single-post/single-post-comment/single-post-comment.component';
 
 
@@ -17,7 +20,7 @@ import { SinglePostCommentComponent } from './single-post/single-post-comment/si
      FormsModule,
       ReactiveFormsModule
   ],
-  declarations: [ CreatePostComponent, SinglePostComponent, SinglePostCommentComponent ],
+  declarations: [ CreatePostComponent, SinglePostComponent, SinglePostCommentComponent, PostRowComponent, ListPostsComponent ],
   providers: [ForumService, NotificationsService]
 })
 export class ForumModule { }
