@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Http, Response } from '@angular/http';
+import { Http, Response, Headers } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
 import { Subject } from 'rxjs/Subject';
 
@@ -58,5 +58,38 @@ export class UserService {
     let data = JSON.stringify(userData);
     return this._http.post(url, data, requestOptions).map((response: Response) => response.json());
   }
+
+  private getJson(response: Response) {
+    return response.json();
+  }
+
+  private checkForError(response: Response): Response | Observable<any> {
+    if (response.status >= 200 && response.status < 300) {
+      return response;
+    } else {
+      let error = new Error(response.statusText);
+      error['response'] = response;
+      console.error(error);
+      throw error;
+    }
+  }
+
+  public sendMessageToUser(to: String, from: String, message: any): Observable<any> {
+    let apiUrl = `${SINGLE_USER_URL}/user/message/${to}`;
+    console.log(apiUrl);
+    let headers = new Headers({
+      'Content-Type': 'application/json',
+      Accept: 'application/json'
+    });
+    return this._http.post(
+      apiUrl,
+      JSON.stringify(message),
+      { headers }
+    )
+      .map(this.checkForError)
+      .catch(err => Observable.throw(err))
+      .map(this.getJson);
+  }
+
 
 }

@@ -3,6 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule } from '@angular/router';
 import { AppComponent } from './app.component';
 import { APP_ROUTES } from './app.routes';
+import { FormsModule }   from '@angular/forms';
 
 import { AuthModule } from './auth/auth.module';
 import { AuthService } from './auth/auth.service';
@@ -24,7 +25,8 @@ import { PublicProfileComponent } from './users/public-profile/public-profile/pu
     BrowserModule,
     RouterModule.forRoot(APP_ROUTES),
     AuthModule,
-    ForumModule
+    ForumModule,
+    FormsModule
   ],
   providers: [AuthService, UserService, HttpOptionsService, AuthGuard],
 })

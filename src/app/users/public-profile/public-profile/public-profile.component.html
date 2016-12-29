@@ -1,49 +1,38 @@
 <aside class="profile-card">
-  <header>
-    <!-- here’s the avatar -->
+<!--
+<header>
+  
     <a target="" href="">
       <img src="https://harbourspot.com/images/person_placeholder.jpg" class="hoverZoomLink">
     </a>
 
-    <!-- the username -->
+    
     <h1>{{firstname}} {{lastname}}</h1>
 
-    <!-- and role or location -->
+    
     <h2>{{username}}</h2>
 
   </header>
 
-  <!-- bit of a bio; who are you? -->
-  <div class="profile-bio">
+ 
+  <div class="profile-bio" *ngIf="!sendButtonClicked">
 
     <p>
-      About info - moje da sa number of posts ili neshto takova
+      About info - moje da sa number ili link of posts ili neshto takova
     </p>
 
   </div>
 
-  <!-- some social links to show off -->
-  <ul class="profile-social-links">
-    <li>
-      <a target="_blank" href="https://www.facebook.com/creativedonut">
-        <i class="fa fa-facebook"></i>
-      </a>
-    </li>
-    <li>
-      <a target="_blank" href="https://twitter.com/dropyourbass">
-        <i class="fa fa-twitter"></i>
-      </a>
-    </li>
-    <li>
-      <a target="_blank" href="https://github.com/vipulsaxena">
-        <i class="fa fa-github"></i>
-      </a>
-    </li>
-    <li>
-      <a target="_blank" href="https://www.behance.net/vipulsaxena">
+  
+  <div *ngIf="isUserLoggedIn" class="profile-social-links">
+    <a class="waves-effect waves-light btn">Send message</a>
+  </div>-->
 
-        <i class="fa fa-behance"></i>
-      </a>
-    </li>
-  </ul>
+  <form (ngSubmit)="sendMessage()">
+    <div class="form-group">
+      <label for="message">Your message</label>
+      <input type="text" class="form-control" id="message" name="message" [(ngModel)]="message.message" required>
+    </div>
+    <button type="submit" class="btn btn-default">Send</button>
+  </form>
 </aside>
