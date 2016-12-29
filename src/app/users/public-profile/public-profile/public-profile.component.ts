@@ -10,6 +10,7 @@ import { NotificationsService } from './../../../../../node_modules/angular2-not
 
 @Component({
   selector: 'app-public-profile',
+  template: '<simple-notifications [options]="options"</simple-notifications>',
   templateUrl: './public-profile.component.html',
   styleUrls: ['./public-profile.component.css']
 })
@@ -26,6 +27,11 @@ export class PublicProfileComponent implements OnInit {
   public isUserLoggedIn: boolean;
   public message: Message;
 
+  public options = {
+    position: ['bottom', 'right'],
+    timeOut: 5000,
+    lastOnBottom: true
+  }
 
   constructor(route: ActivatedRoute, userService: UserService, notificationService: NotificationsService) {
     this._route = route;
@@ -57,7 +63,14 @@ export class PublicProfileComponent implements OnInit {
     this._userService.sendMessageToUser(this._params._value.username, 'pesho', this.message)
       .subscribe(response => {
         console.log(response);
-        this._notificationService.success('Success.', 'Message to `${this._username}` sent.');
+        this._notificationService.success('Success.', 'Message sent.',
+          {
+            timeOut: 5000,
+            showProgressBar: true,
+            pauseOnHover: false,
+            clickToClose: false,
+            maxLength: 10
+          });
         console.log(response.id);
       },
       err => console.log(err));
