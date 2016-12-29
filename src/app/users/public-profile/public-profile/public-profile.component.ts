@@ -57,12 +57,8 @@ export class PublicProfileComponent implements OnInit {
     this._userService.sendMessageToUser(this._params._value.username, 'pesho', this.message)
       .subscribe(response => {
         console.log(response);
-        if (response.message.type === 'error') {
-          this._notificationService.error('Error', `${response.message.text}`);
-        } else {
-          this._notificationService.success('Success.', 'Message to `${this._username}` sent.');
-          console.log(response.id);
-        }
+        this._notificationService.success('Success.', 'Message to `${this._username}` sent.');
+        console.log(response.id);
       },
       err => console.log(err));
   }
