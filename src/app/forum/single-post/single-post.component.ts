@@ -51,6 +51,11 @@ export class SinglePostComponent implements OnInit {
                 } else {
                   this.post = response;
                   this.post.username = response.user.username;
+                  this.post.answerLength = response.answers.length;
+
+                  if (response.usersLiked.indexOf('Gosho') >= 0) {
+                    this.post.alreadyLiked = true;
+                  }
                   console.log('not error heree');
                   console.log(this.post);
                    // this._notificationService.success('Success.', `Thread is created.`);
@@ -74,6 +79,38 @@ export class SinglePostComponent implements OnInit {
                 } else {
                     this._notificationService.success('Success.', `Thread is created.`);
                     console.log(response.id);
+                   // setTimeout(() => this._router.navigateByUrl('/forum'), 1500);
+                }
+            },
+            err => console.log(err));
+    }
+
+    public onPostLike(): void{
+      console.log('like');
+      this._service
+        .likePost(this.id)
+        .subscribe(response => {
+                if (response.message.type === 'error') {
+                    this._notificationService.error('Error', `${response.message.text}`);
+                } else {
+                    this._notificationService.success('Success.', `Post liked`);
+                   // setTimeout(() => this._router.navigateByUrl('/forum'), 1500);
+                   console.log('--------------');
+                   console.log(response);
+                   console.log('--------------');
+                }
+            },
+            err => console.log(err));
+    }
+
+    public onPostUnlike(): void{
+      this._service
+        .unlikePost(this.id)
+        .subscribe(response => {
+                if (response.message.type === 'error') {
+                    this._notificationService.error('Error', `${response.message.text}`);
+                } else {
+                    this._notificationService.success('Success.', `Post liked`);
                    // setTimeout(() => this._router.navigateByUrl('/forum'), 1500);
                 }
             },

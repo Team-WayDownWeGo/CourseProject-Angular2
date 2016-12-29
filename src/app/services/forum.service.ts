@@ -62,4 +62,26 @@ export class ForumService {
     .catch(err => Observable.throw(err))
     .map(this.getJson)
   }
+
+  likePost(postId): Observable<any> {
+    return this.http.put(
+      `${this.api_url}/${postId}/like`,
+      null,
+      { headers: this.headers }
+    )
+    .map(this.checkForError)
+    .catch(err => Observable.throw(err))
+    .map(this.getJson)
+  }
+
+   unlikePost(postId): Observable<any> {
+    return this.http.put(
+      `${this.api_url}/${postId}/unlike`,
+      null,
+      { headers: this.headers }
+    )
+    .map(this.checkForError)
+    .catch(err => Observable.throw(err))
+    .map(this.getJson)
+  }
 }
