@@ -1,31 +1,19 @@
-<aside class="profile-card">
+<aside *ngIf="username" class="profile-card">
   <div *ngIf="displayHeader">
     <header>
-
       <a target="" href="">
         <img src="https://harbourspot.com/images/person_placeholder.jpg" class="hoverZoomLink">
       </a>
-
-
       <h1>{{firstname}} {{lastname}}</h1>
-
-
       <h2>{{username}}</h2>
-
     </header>
-
-
     <div class="profile-bio" *ngIf="!sendButtonClicked">
-
       <p>
         About info - moje da sa number ili link of posts ili neshto takova
       </p>
-
     </div>
-
-
     <div *ngIf="isUserLoggedIn" class="profile-social-links">
-      <a (click)="displayHeader=!displayHeader"class="waves-effect waves-light btn">Send message</a>
+      <a (click)="displayHeader=!displayHeader" class="waves-effect waves-light btn">Send message</a>
     </div>
   </div>
 
@@ -40,3 +28,4 @@
     </form>
   </div>
 </aside>
+<simple-notifications [options]="options"></simple-notifications>

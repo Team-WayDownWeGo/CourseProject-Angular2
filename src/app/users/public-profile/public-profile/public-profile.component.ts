@@ -7,10 +7,8 @@ import { Message } from './../../model/message-model';
 import { NotificationsService } from './../../../../../node_modules/angular2-notifications';
 
 
-
 @Component({
   selector: 'app-public-profile',
-  template: '<simple-notifications [options]="options"</simple-notifications>',
   templateUrl: './public-profile.component.html',
   styleUrls: ['./public-profile.component.css']
 })
@@ -33,7 +31,7 @@ export class PublicProfileComponent implements OnInit {
     position: ['bottom', 'right'],
     timeOut: 5000,
     lastOnBottom: true
-  }
+  };
 
   constructor(route: ActivatedRoute, userService: UserService, notificationService: NotificationsService, router: Router) {
     this._route = route;
@@ -56,35 +54,33 @@ export class PublicProfileComponent implements OnInit {
           this.username = user.username;
           this.firstname = user.firstName;
           this.lastname = user.lastName;
+        } else {
+          this._notificationService.error('Error', 'User not found',
+            {
+              timeOut: 5000,
+              showProgressBar: true,
+              pauseOnHover: false,
+              clickToClose: false
+            });
+          setTimeout(() => this._router.navigateByUrl('/'), 2000);
         }
-        else {
-          // ne raboti :)
-          this._notificationService.error("test", "test");
-          this._router.navigateByUrl('/');
-        }
-        // TODO: find a way to work directly with observable ?????
 
       },
-      // TODO: redirect to users not found html page
       error => console.log('not found'));
   }
 
   private sendMessage() {
-    console.log('vikna me formata');
-    console.log(this.message);
     this._userService.sendMessageToUser(this._params._value.username, 'pesho', this.message)
       .subscribe(response => {
         console.log(response);
-        this._notificationService.success('Success.', 'Message sent.',
+        this._notificationService.success('Success', 'Message sent',
           {
             timeOut: 5000,
             showProgressBar: true,
             pauseOnHover: false,
-            clickToClose: false,
-            maxLength: 10
+            clickToClose: false
           });
         this.displayHeader = !this.displayHeader;
-        console.log(response.id);
       },
       err => console.log(err));
   }
