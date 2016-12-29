@@ -56,10 +56,21 @@ export class SinglePostComponent implements OnInit {
                   if (response.usersLiked.indexOf('Gosho') >= 0) {
                     this.post.alreadyLiked = true;
                   }
-                  console.log('not error heree');
-                  console.log(this.post);
+
+                  this.post.answers.forEach((x) => {
+                    if (x.usersLiked.indexOf('Pesho') >= 0)
+                    {
+                      x.alreadyLiked = true;
+                    }
+                    else
+                    {
+                      x.alreadyLiked = false;
+                    }
+
+                    x.postId = this.id;
+                  });
+
                    // this._notificationService.success('Success.', `Thread is created.`);
-                    console.log(response.id);
                    // setTimeout(() => this._router.navigateByUrl('/forum'), 1500);
                 }
             },
@@ -85,7 +96,7 @@ export class SinglePostComponent implements OnInit {
             err => console.log(err));
     }
 
-    public onPostLike(): void{
+    public onPostLike(): void {
       console.log('like');
       this._service
         .likePost(this.id)

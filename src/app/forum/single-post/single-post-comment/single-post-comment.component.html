@@ -3,8 +3,8 @@
         <p class="lead">{{comment.content}}</p>
         <p class="comment-info"><span class="glyphicon glyphicon-time"></span> Posted on {{comment.date}} <a href="/users/{{comment.user.username}}">{{comment.user.username}}</a></p>
         <p class="likes">Likes: <span id="post-answer-likes-count">{{comment.likes}}</span>
-            <button class="btn btn-info btn-sm like-post-answer" (click)="onLike()">Like</button>
-            <!--<button class="btn btn-info btn-sm like-post-answer" *ngIf = "">Unlike</button>-->
+            <button class="btn btn-info btn-sm like-post-answer" *ngIf="!comment.alreadyLiked" (click)="onLike()">Like</button>
+            <button class="btn btn-info btn-sm like-post-answer" *ngIf="comment.alreadyLiked" (click)="onUnlike()">Unlike</button>
         </p>
     </div>
     <hr>
