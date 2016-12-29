@@ -41,4 +41,25 @@ export class ForumService {
     .catch(err => Observable.throw(err))
     .map(this.getJson)
   }
+
+  addCommentToPost({content, postId}): Observable<any> {
+    return this.http.post(
+      `${this.api_url}/${postId}/comment`,
+      JSON.stringify(content),
+      { headers: this.headers }
+    )
+    .map(this.checkForError)
+    .catch(err => Observable.throw(err))
+    .map(this.getJson)
+  }
+
+  getPost(postId): Observable<any> {
+     return this.http.get(
+      `${this.api_url}/${postId}`,
+      { headers: this.headers }
+    )
+    .map(this.checkForError)
+    .catch(err => Observable.throw(err))
+    .map(this.getJson)
+  }
 }

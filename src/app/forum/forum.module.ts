@@ -6,6 +6,8 @@ import { RouterModule } from '@angular/router';
 
 import { CreatePostComponent } from './create-post/create-post.component';
 import { ForumService } from '../services/forum.service';
+import { SinglePostComponent } from './single-post/single-post.component';
+
 
 @NgModule({
   imports: [
@@ -14,7 +16,7 @@ import { ForumService } from '../services/forum.service';
      FormsModule,
       ReactiveFormsModule
   ],
-  declarations: [ CreatePostComponent ],
+  declarations: [ CreatePostComponent, SinglePostComponent ],
   providers: [ForumService, NotificationsService]
 })
 export class ForumModule { }

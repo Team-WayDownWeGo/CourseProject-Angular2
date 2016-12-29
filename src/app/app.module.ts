@@ -12,6 +12,8 @@ import { ForumModule, CreatePostComponent } from './forum';
 
 import { AuthGuard } from './guard/guard';
 import { PublicProfileComponent } from './users/public-profile/public-profile/public-profile.component';
+// import { SinglePostComponent } from './forum/single-post/single-post.component';
+import { SinglePostCommentComponent } from './forum/single-post/single-post-comment/single-post-comment.component';
 
 
 @NgModule({
@@ -19,6 +21,8 @@ import { PublicProfileComponent } from './users/public-profile/public-profile/pu
   declarations: [
     AppComponent,
     PublicProfileComponent,
+    // SinglePostComponent,
+    SinglePostCommentComponent,
   ],
   imports: [
     BrowserModule,
