@@ -15,6 +15,11 @@ import { ForumModule, CreatePostComponent } from './forum';
 
 import { AuthGuard } from './guard/guard';
 import { PublicProfileComponent } from './users/public-profile/public-profile/public-profile.component';
+import { ProfileNavComponent } from './profile/profile-nav/profile-nav.component';
+import { ProfileHomeComponent } from './profile/profile-home/profile-home.component';
+import { ProfileEditComponent } from './profile/profile-edit/profile-edit.component';
+import { ProfileInboxComponent } from './profile/profile-inbox/profile-inbox.component';
+import { ProfileOutboxComponent } from './profile/profile-outbox/profile-outbox.component';
 // import { PaginationComponent } from './pagination/pagination.component';
 // import { ListPostsComponent } from './list-posts/list-posts.component';
 // import { PostRowComponent } from './post-row/post-row.component';
@@ -27,6 +32,11 @@ import { PublicProfileComponent } from './users/public-profile/public-profile/pu
   declarations: [
     AppComponent,
     PublicProfileComponent,
+    ProfileNavComponent,
+    ProfileHomeComponent,
+    ProfileEditComponent,
+    ProfileInboxComponent,
+    ProfileOutboxComponent,
     // PaginationComponent
     // ListPostsComponent,
     // PostRowComponent,

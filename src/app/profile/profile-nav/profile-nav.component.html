@@ -1,0 +1,18 @@
+<div class="navbar-inner">
+  <div class="container">
+    <ul class="nav nav-pills center-block">
+      <li role="presentation"><a [routerLink]="['/profile/home']">Details</a></li>
+      <li role="presentation"><a [routerLink]="['/profile/edit']">Edit</a></li>
+      <li class="dropdown">
+        <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Messages <span class="caret"></span></a>
+        <ul class="dropdown-menu">
+          <li><a [routerLink]="['/profile/inbox']">Inbox</a></li>
+          <li><a [routerLink]="['/profile/outbox']">Outbox</a></li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+</div>
+<div class="container">
+  <router-outlet></router-outlet>
+</div>
