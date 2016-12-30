@@ -24,7 +24,6 @@ export class PublicProfileComponent implements OnInit {
   public username: string;
   public firstname: string;
   public lastname: string;
-  // for test purposes to replace with real bool when created
   public isUserLoggedIn: boolean;
   public message: Message;
   public displayHeader: Boolean;
