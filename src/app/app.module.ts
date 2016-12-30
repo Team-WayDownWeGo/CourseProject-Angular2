@@ -20,6 +20,8 @@ import { ProfileHomeComponent } from './profile/profile-home/profile-home.compon
 import { ProfileEditComponent } from './profile/profile-edit/profile-edit.component';
 import { ProfileInboxComponent } from './profile/profile-inbox/profile-inbox.component';
 import { ProfileOutboxComponent } from './profile/profile-outbox/profile-outbox.component';
+import { CategoryService } from './services/category.service';
+// import { ListCategoriesComponent } from './list-categories/list-categories.component';
 // import { PaginationComponent } from './pagination/pagination.component';
 // import { ListPostsComponent } from './list-posts/list-posts.component';
 // import { PostRowComponent } from './post-row/post-row.component';
@@ -37,6 +39,7 @@ import { ProfileOutboxComponent } from './profile/profile-outbox/profile-outbox.
     ProfileEditComponent,
     ProfileInboxComponent,
     ProfileOutboxComponent,
+    // ListCategoriesComponent,
     // PaginationComponent
     // ListPostsComponent,
     // PostRowComponent,
@@ -51,6 +54,6 @@ import { ProfileOutboxComponent } from './profile/profile-outbox/profile-outbox.
     FormsModule,
     SimpleNotificationsModule
   ],
-  providers: [AuthService, UserService, HttpOptionsService, AuthGuard],
+  providers: [AuthService, UserService, HttpOptionsService, AuthGuard, CategoryService],
 })
 export class AppModule { }
