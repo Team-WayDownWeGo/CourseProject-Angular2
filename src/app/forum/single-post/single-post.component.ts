@@ -22,7 +22,8 @@ export class SinglePostComponent implements OnInit {
   public post: any;
   sub: any;
   id: string;
-
+  likes: number;
+  alreadyLiked: boolean;
   constructor(private _service: ForumService,
     private fb: FormBuilder,
     private _notificationService: NotificationsService,
@@ -49,12 +50,16 @@ export class SinglePostComponent implements OnInit {
                 if (response.message === 'error') {
                     this._notificationService.error('Error', `${response.message.text}`);
                 } else {
+                  
+                  
                   this.post = response;
+                 this.likes = response.likes;
                   this.post.username = response.user.username;
                   this.post.answerLength = response.answers.length;
 
                   if (response.usersLiked.indexOf('Gosho') >= 0) {
                     this.post.alreadyLiked = true;
+                    this.alreadyLiked = true;
                   }
 
                   this.post.answers.forEach((x) => {
@@ -106,9 +111,8 @@ export class SinglePostComponent implements OnInit {
                 } else {
                     this._notificationService.success('Success.', `Post liked`);
                    // setTimeout(() => this._router.navigateByUrl('/forum'), 1500);
-                   console.log('--------------');
-                   console.log(response);
-                   console.log('--------------');
+                  this.likes += 1;
+                  this.alreadyLiked = true;
                 }
             },
             err => console.log(err));
@@ -123,6 +127,8 @@ export class SinglePostComponent implements OnInit {
                 } else {
                     this._notificationService.success('Success.', `Post liked`);
                    // setTimeout(() => this._router.navigateByUrl('/forum'), 1500);
+                  this.likes -= 1;
+                  this.alreadyLiked = false;
                 }
             },
             err => console.log(err));

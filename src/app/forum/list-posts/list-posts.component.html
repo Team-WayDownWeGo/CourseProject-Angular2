@@ -21,7 +21,6 @@
                     <th class="cell-stat-2x hidden-xs hidden-sm"></th>
                 </tr>
             </thead>
-            <tbody></tbody>
             <tbody>
                 <app-post-row *ngFor="let post of postsInfo.posts | presentationPipe : 30" [post]="post"></app-post-row>
             </tbody>

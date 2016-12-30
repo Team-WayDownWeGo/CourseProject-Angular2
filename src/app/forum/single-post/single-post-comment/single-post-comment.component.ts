@@ -11,10 +11,13 @@ import { NotificationsService } from './../../../../../node_modules/angular2-not
 export class SinglePostCommentComponent implements OnInit {
 
  @Input() comment: any;
-
+ likes: number;
+ alreadyLiked: boolean;
   constructor(private _forumService: ForumService, private _notificationService: NotificationsService) { }
 
   ngOnInit() {
+    this.likes = this.comment.likes;
+    this.alreadyLiked = this.comment.alreadyLiked;
   }
 
   onLike() {
@@ -31,7 +34,8 @@ export class SinglePostCommentComponent implements OnInit {
                 } else {
                     this._notificationService.success('Success.', `Post liked`);
                     console.log(response);
-                    
+                    this.likes += 1;
+                    this.alreadyLiked = true;
                    // setTimeout(() => this._router.navigateByUrl('/forum'), 1500);
                 }
             },
@@ -50,7 +54,9 @@ export class SinglePostCommentComponent implements OnInit {
                     this._notificationService.error('Error', `${response.message.text}`);
                 } else {
                     this._notificationService.success('Success.', `Post liked`);
-
+                    this.likes -= 1;
+                    this.alreadyLiked = false;
+                    
                     console.log(response);
                    // setTimeout(() => this._router.navigateByUrl('/forum'), 1500);
                 }

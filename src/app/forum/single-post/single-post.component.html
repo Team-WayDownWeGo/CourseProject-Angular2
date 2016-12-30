@@ -9,9 +9,9 @@
         <hr>
         <p>by <a href="/users/{{post.username}}">{{post.username}}</a></p>
         <hr>
-        <p class="likes">Likes: <span id="post-likes-count">{{post.likes}}</span>
-            <button class="btn btn-info unlike-post" *ngIf="post.alreadyLiked" (click)="onPostUnlike()">Unlike</button>
-            <button class="btn btn-info like-post" *ngIf="!post.alreadyLiked" (click)="onPostLike()">Like</button>
+        <p class="likes">Likes: <span id="post-likes-count">{{likes}}</span>
+            <button class="btn btn-info unlike-post" *ngIf="alreadyLiked" (click)="onPostUnlike()">Unlike</button>
+            <button class="btn btn-info like-post" *ngIf="!alreadyLiked" (click)="onPostLike()">Like</button>
         </p>
         <h3 class="comments">Comments: {{post.answerLength}}</h3>
         <hr>

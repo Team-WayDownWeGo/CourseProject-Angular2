@@ -33,7 +33,6 @@ export class ListPostsComponent implements OnInit {
                 } else {
                     this.postsInfo.posts = response.forumPosts;
                     this.postsInfo.pageCount = response.pageCount;
-                    // console.log(this.posts);
                 }
             },
             err => console.log(err));

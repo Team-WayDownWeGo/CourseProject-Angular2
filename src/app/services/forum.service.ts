@@ -113,7 +113,7 @@ export class ForumService {
 
   getAllPosts(page): Observable<any> {
      return this.http.get(
-      `${this.api_url}/${page}`,
+      `${this.api_url}/all/${page}`,
       { headers: this.headers }
     )
     .map(this.checkForError)
