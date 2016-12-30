@@ -6,6 +6,7 @@ import { User } from './../../model/user-model';
 import { Message } from './../../model/message-model';
 import { NotificationsService } from './../../../../../node_modules/angular2-notifications';
 import { AuthService } from './../../../auth/auth.service';
+import { ForumService } from './../../../services/forum.service';
 
 
 @Component({
@@ -20,6 +21,7 @@ export class PublicProfileComponent implements OnInit {
   private _username: string;
   private _router: Router;
   public _userService: UserService;
+  public _forumService: ForumService;
   private _authService: any;
   public username: string;
   public firstname: string;
@@ -27,6 +29,8 @@ export class PublicProfileComponent implements OnInit {
   public isUserLoggedIn: boolean;
   public message: Message;
   public displayHeader: Boolean;
+  private _userPosts: any;
+  public userPostsCount: Number = 0;
 
   public options = {
     position: ['bottom', 'right'],
@@ -38,7 +42,8 @@ export class PublicProfileComponent implements OnInit {
     userService: UserService,
     notificationService: NotificationsService,
     router: Router,
-    authService: AuthService) {
+    authService: AuthService,
+    forumService: ForumService) {
     this._route = route;
     this._params = route.params;
     this._userService = userService;
@@ -48,6 +53,8 @@ export class PublicProfileComponent implements OnInit {
     this.displayHeader = true;
     this._router = router;
     this._authService = authService;
+    this._forumService = forumService;
+    this._userPosts = new Array();
   }
 
   private getUser() {
@@ -89,8 +96,19 @@ export class PublicProfileComponent implements OnInit {
       },
       err => console.log(err));
   }
+
+  private getAllUsersPosts() {
+    let username = this._params._value.username;
+
+    this._forumService.getAllUserPosts(this._username).subscribe(response => {
+      this._userPosts = response;
+      this.userPostsCount = this._userPosts.length;
+    });
+  }
+
   ngOnInit() {
     this.getUser();
     this.isUserLoggedIn = this._authService.isLoggedIn();
+    this.getAllUsersPosts();
   }
 }

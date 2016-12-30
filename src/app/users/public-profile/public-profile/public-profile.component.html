@@ -5,11 +5,12 @@
         <img src="https://harbourspot.com/images/person_placeholder.jpg" class="hoverZoomLink">
       </a>
       <h1>{{firstname}} {{lastname}}</h1>
-      <h2>{{username}}</h2>
+      <h2><i class="fa fa-user" aria-hidden="true"></i>{{username}}</h2>
     </header>
     <div class="profile-bio" *ngIf="!sendButtonClicked">
       <p>
-        About info - moje da sa number ili link of posts ili neshto takova
+        About: {{username}} has created <strong>{{userPostsCount}}</strong> posts.
+        <span *ngIf="userPostsCount > 0">Check em out?</span>
       </p>
     </div>
     <div *ngIf="isUserLoggedIn" class="profile-social-links">
