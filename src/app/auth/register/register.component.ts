@@ -47,10 +47,10 @@ export class RegisterComponent implements OnInit {
     this._authService
       .registerUser(this.form.value)
       .subscribe(response => {
-        if(response.message) {
-          this._notificationsService.error('Registration failed', 'asd');
+        if(response.error) {
+          this._notificationsService.error('', response.error);
         } else {
-          this._notificationsService.success('Registration successful', 'asd')
+          this._notificationsService.success('', response.success)
           setTimeout(() => this._router.navigateByUrl('/login'), 1500);
         }
       },
