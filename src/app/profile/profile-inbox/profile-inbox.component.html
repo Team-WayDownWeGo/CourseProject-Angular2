@@ -1,0 +1,16 @@
+<table class="table">
+  <thead>
+    <tr>
+      <th>To</th>
+      <th>Message</th>
+      <th>When</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let message of userDetails.inbox">
+      <td>{{message.user.username}}</td>
+      <td>{{message.message}}</td>
+      <td>{{message.date | date:'medium'}}</td>
+    </tr>
+  </tbody>
+</table>
