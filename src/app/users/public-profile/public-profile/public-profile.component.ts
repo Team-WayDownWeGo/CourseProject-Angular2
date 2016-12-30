@@ -5,6 +5,7 @@ import { UserService } from './../../../common-services/user.service';
 import { User } from './../../model/user-model';
 import { Message } from './../../model/message-model';
 import { NotificationsService } from './../../../../../node_modules/angular2-notifications';
+import { AuthService } from './../../../auth/auth.service';
 
 
 @Component({
@@ -19,6 +20,7 @@ export class PublicProfileComponent implements OnInit {
   private _username: string;
   private _router: Router;
   public _userService: UserService;
+  private _authService: any;
   public username: string;
   public firstname: string;
   public lastname: string;
@@ -33,7 +35,11 @@ export class PublicProfileComponent implements OnInit {
     lastOnBottom: true
   };
 
-  constructor(route: ActivatedRoute, userService: UserService, notificationService: NotificationsService, router: Router) {
+  constructor(route: ActivatedRoute,
+    userService: UserService,
+    notificationService: NotificationsService,
+    router: Router,
+    authService: AuthService) {
     this._route = route;
     this._params = route.params;
     this._userService = userService;
@@ -42,6 +48,7 @@ export class PublicProfileComponent implements OnInit {
     this._username = this._params._value.username;
     this.displayHeader = true;
     this._router = router;
+    this._authService = authService;
   }
 
   private getUser() {
@@ -72,7 +79,6 @@ export class PublicProfileComponent implements OnInit {
   private sendMessage() {
     this._userService.sendMessageToUser(this._params._value.username, 'pesho', this.message)
       .subscribe(response => {
-        console.log(response);
         this._notificationService.success('Success', 'Message sent',
           {
             timeOut: 5000,
@@ -86,6 +92,6 @@ export class PublicProfileComponent implements OnInit {
   }
   ngOnInit() {
     this.getUser();
-    this.isUserLoggedIn = true;
+    this.isUserLoggedIn = this._authService.isLoggedIn();
   }
 }

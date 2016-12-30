@@ -19,7 +19,7 @@ export const APP_ROUTES: Routes = [
     { path: 'forum/post/:id', component: SinglePostComponent },
     { path: 'forum/:page', component: ListPostsComponent },
     {
-        path: 'profile', component: ProfileNavComponent, children: [
+        path: 'profile', component: ProfileNavComponent, canActivate: [AuthGuard], children: [
             {
                 path: 'home',
                 component: ProfileHomeComponent
@@ -37,7 +37,7 @@ export const APP_ROUTES: Routes = [
                 component: ProfileOutboxComponent
             }
         ]
-    },//, canActivate: [AuthGuard] },
+    },
     { path: 'users/:username', component: PublicProfileComponent },
     // TODO: error page. wrong urls go to homepage 
     { path: '**', redirectTo: '' }
