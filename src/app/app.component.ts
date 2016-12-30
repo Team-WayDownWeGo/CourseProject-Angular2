@@ -1,4 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+
+import { UserService } from './common-services/user.service';
+import { AuthService } from './auth/auth.service';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +10,27 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css'],
 })
 export class AppComponent {
-  title = 'app works!';
+  public isUserLoggedIn: boolean;
+
+  private _userService: UserService;
+  private _router: Router;
+  private _authService: AuthService;
+
+  constructor(userService: UserService, router: Router, authService: AuthService) {
+    this._userService = userService;
+    this._router = router;
+    this._authService = authService;
+    this.isUserLoggedIn = !!localStorage.getItem('user');
+  }
+
+  public ngOnInit() {
+    this._userService.getUserLoggedIn()
+      .subscribe((isLooged: boolean) => this.isUserLoggedIn = isLooged);
+  }
+
+  public logout() {
+    this._authService.logoutUser();
+    this._router.navigateByUrl('/');
+    this._userService.setIsUserLoggedIn();
+  }
 }

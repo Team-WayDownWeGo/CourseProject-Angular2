@@ -60,4 +60,7 @@ export class AuthService {
             .map((res: Response) => res.json());
     }
 
+    public logoutUser(): void {
+        localStorage.clear();
+    }
 }
