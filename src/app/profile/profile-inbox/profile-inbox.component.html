@@ -1,4 +1,4 @@
-<table class="table">
+<table class="table table-responsive">
   <thead>
     <tr>
       <th>To</th>
@@ -6,9 +6,10 @@
       <th>When</th>
     </tr>
   </thead>
-  <tbody>
+  <p *ngIf="!userDetails.inbox">You don't have any messages.</p>
+  <tbody *ngIf="userDetails.inbox">
     <tr *ngFor="let message of userDetails.inbox">
-      <td>{{message.user.username}}</td>
+      <td><a href="/users/{{message.user.username}}">{{message.user.username}}</a></td>
       <td>{{message.message}}</td>
       <td>{{message.date | date:'medium'}}</td>
     </tr>
