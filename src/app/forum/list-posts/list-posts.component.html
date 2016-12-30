@@ -23,13 +23,11 @@
             </thead>
             <tbody></tbody>
             <tbody>
-                <app-post-row *ngFor="let post of postsInfo.posts" [post]="post"></app-post-row>
-
+                <app-post-row *ngFor="let post of postsInfo.posts | presentationPipe : 30" [post]="post"></app-post-row>
             </tbody>
         </table>
     </div>
     <ul class="pagination">
-        <!--<li><a class="disabled" href="/forum?page=1">1</a></li>-->
         <app-pagination *ngFor="let page of postsInfo.pageCount | toNumberArray" [page]="page">
         </app-pagination>
     </ul>
