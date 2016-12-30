@@ -4,7 +4,7 @@ import { NotificationsService } from './../../../../node_modules/angular2-notifi
 import { Router } from '@angular/router';
 
 import { ForumService } from '../../services/forum.service';
-
+import { CategoryService } from '../../services/category.service';
 @Component({
   selector: 'app-create-post',
   templateUrl: './create-post.component.html',
@@ -16,8 +16,11 @@ export class CreatePostComponent implements OnInit {
   description: string;
   postForm: FormGroup;
   options: Object;
+  category: string
+  categories: any;
 
   constructor(private _service: ForumService,
+  private _categoryService: CategoryService,
     private fb: FormBuilder,
     private _notificationService: NotificationsService,
     private _router: Router) {
@@ -28,9 +31,24 @@ export class CreatePostComponent implements OnInit {
   ngOnInit() {
     this.postForm = this.fb.group({
       title: ['', [Validators.required, Validators.maxLength(60)]],
-      description: ['', Validators.required] //,
+      description: ['', Validators.required],
+      category: [''] //,
       // user: [this.username] 
     });
+
+    this._categoryService
+      .getAllCategories()
+      .subscribe(response => {
+                if (response.message === 'error') {
+                    this._notificationService.error('Error', `${response.message}`);
+                } else {
+                  this.categories = response.map(x => {
+                    return x.title;
+                  });
+                }
+            },
+            err => console.log(err));
+
   }
 
   //  onSubmit({ value, valid }: { value: Post, valid: boolean }) {

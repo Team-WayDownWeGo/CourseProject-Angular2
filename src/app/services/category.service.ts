@@ -6,7 +6,7 @@ import 'rxjs/add/observable/throw';
 
 
 @Injectable()
-export class ForumService {
+export class CategoryService {
 
   headers: Headers = new Headers({
     'Content-Type': 'application/json',

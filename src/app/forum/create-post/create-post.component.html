@@ -30,21 +30,22 @@
                         Description is required
                     </div>
                 </div>
+                <div class="input-group">
+                    <span class="input-group-addon"> <i class="material-icons">assignment</i></span>
+                    <div class="form-group is-empty has-info">
+                        <select class="form-control" id="category" name="category" formControlName="category">
+                      <option value="">Choose Category</option>
+                      <option *ngFor = "let category of categories" value="{{category}}">{{category}}</option>
+                      </select>
+                        <span class="material-input"></span>
+                    </div>
+                    <!--<div class="error" *ngIf="postForm.get('categoryForm').hasError('required') && postForm.get('categoryForm').touched">
+                        Category is required
+                    </div>-->
+                </div>
                 <div class="footer text-center">
                     <input class="btn btn-lg btn-info" type="submit" id="create" value="Create" [disabled]="postForm.invalid">
                 </div>
-<!--
-                <div class="input-group">
-                  <span class="input-group-addon"> <i class="material-icons">assignment</i></span>
-                    <div class="form-group is-empty has-info"><select class="form-control" id="category" name="category">
-                      <option value="">Choose Category</option><option value="Hiking">Hiking</option><option value="History">History</option><option value="Climbing">Climbing</option><option value="Board Games">Board Games</option><option value="Dancing">Dancing</option><option value="Art">Art</option><option value="Swimming">Swimming</option><option value="Quiz">Quiz</option><option value="Music">Music</option><option value="Programming">Programming</option></select>
-                        <span
-                            class="material-input"></span>
-                    </div>
-                </div>-->
-
-
-
             </form>
         </div>
     </div>
