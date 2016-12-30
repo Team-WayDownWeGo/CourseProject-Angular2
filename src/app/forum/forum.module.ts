@@ -10,6 +10,7 @@ import { SinglePostComponent } from './single-post/single-post.component';
 import { PostRowComponent } from './list-posts/post-row/post-row.component';
 import { ListPostsComponent } from './list-posts/list-posts.component';
 import { PaginationComponent } from './list-posts/pagination/pagination.component';
+import { PresentationPipe } from '../pipes/presentation.pipe';
 import { SinglePostCommentComponent } from './single-post/single-post-comment/single-post-comment.component';
 import { ToNumberArrayPaginationPipe } from '../pipes/transform-to-array.pipe';
 
@@ -20,7 +21,7 @@ import { ToNumberArrayPaginationPipe } from '../pipes/transform-to-array.pipe';
      FormsModule,
       ReactiveFormsModule
   ],
-  declarations: [ PaginationComponent, CreatePostComponent, SinglePostComponent, SinglePostCommentComponent, PostRowComponent, ListPostsComponent, ToNumberArrayPaginationPipe ],
+  declarations: [ PaginationComponent, CreatePostComponent, SinglePostComponent, SinglePostCommentComponent, PostRowComponent, ListPostsComponent, ToNumberArrayPaginationPipe, PresentationPipe ],
   providers: [ForumService, NotificationsService]
 })
 export class ForumModule { }
