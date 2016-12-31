@@ -30,11 +30,21 @@ export class ListPostsComponent implements OnInit {
                 if (response.message === 'error') {
                     this._notificationService.error('Error', `${response.message.text}`);
                 } else {
-                    this.postsInfo.posts = response.forumPosts;
+
+                  console.log(response);
+                    let forumPostsMapped = response.forumPosts;
+
+
+                   
+                    forumPostsMapped = forumPostsMapped.map(x => {
+                      x.answerCount = x.answers.length;
+                      return x;
+                    })
+
+                    this.postsInfo.posts = forumPostsMapped;
                     this.postsInfo.pageCount = response.pageCount;
                 }
             },
             err => console.log(err));
   }
-
 }

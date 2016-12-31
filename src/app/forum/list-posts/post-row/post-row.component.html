@@ -1,11 +1,34 @@
-<tr id="post-info" data-id="5844ab2ccea03d00118d8f9d">
-    <td class="text-center"><i class="fa fa-comments-o fa-2x text-primary"></i></td>
-    <td>
-        <h3><a href="/forum/post/{{post._id}}">{{post.title}}</a><br><small>{{post.description}}</small></h3>
-    </td>
-    <td class="text-center hidden-xs hidden-sm"><a href="/users/username">username</a></td>
-    <td class="text-center hidden-xs hidden-sm">{{post.answerCount}}</td>
-    <td class="hidden-xs hidden-sm">
-        <p class="likes">Likes: <span id="post-likes-count">{{post.likes}}</span></p>
-    </td>
-</tr>
+<div class="table-responsive">
+    <table class="table forum table-striped">
+        <thead>
+            <tr>
+                <th class="cell-stat"></th>
+                <th>
+                    <h3>Posts</h3>
+                </th>
+                <th class="cell-stat text-center hidden-xs hidden-sm">
+                    <h4>Created by</h4>
+                </th>
+                <th class="cell-stat text-center hidden-xs hidden-sm">
+                    <h4>Answers</h4>
+                </th>
+                <th class="cell-stat-2x hidden-xs hidden-sm"></th>
+            </tr>
+        </thead>
+        <tbody>
+        </tbody>
+        <tbody>
+            <tr id="post-info" *ngFor="let currentPost of post | presentationPipe : 30">
+                <td class="text-center"><i class="fa fa-comments-o fa-2x text-primary"></i></td>
+                <td>
+                    <h3><a href="/forum/post/{{currentPost._id}}">{{post.title}}</a><br><small>{{currentPost.description}}</small></h3>
+                </td>
+                <td class="text-center hidden-xs hidden-sm"><a href="/users/username">username</a></td>
+                <td class="text-center hidden-xs hidden-sm">{{currentPost.answerCount}}</td>
+                <td class="hidden-xs hidden-sm">
+                    <p class="likes">Likes: <span id="post-likes-count">{{currentPost.likes}}</span></p>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

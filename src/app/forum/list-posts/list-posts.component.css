@@ -1,4 +1,4 @@
-.forum.table>tbody>tr>td {
+/*.forum.table>tbody>tr>td {
     vertical-align: middle;
 }
 
@@ -27,4 +27,37 @@
 .pagination li a {
     border: 1px solid #0068AD;
     font-weight: bold;
+}
+
+.table>tbody>tr>td,
+.table>tbody>tr>th,
+.table>tfoot>tr>td,
+.table>tfoot>tr>th,
+.table>thead>tr>td,
+.table>thead>tr>th {
+    padding: 8px;
+    line-height: 1.42857143;
+    vertical-align: top;
+    border-top: 1px solid #ddd;
+}
+
+
+td, th {
+    display: table-cell;
+    vertical-align: inherit;
+}
+
+table {
+    border-spacing: 0;
+    border-collapse: collapse;
+}
+
+:after, :before {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}*/
+
+.asd {
+    display: flex;
 }

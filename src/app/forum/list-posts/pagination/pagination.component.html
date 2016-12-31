@@ -1,1 +1,5 @@
-<li><a class="disabled" href="/forum/{{page}}">{{page}}</a></li>
+<ul class="pagination">
+    <li *ngFor="let currentPage of page | toNumberArray">
+        <a class="disabled" href="/forum/{{currentPage}}">{{currentPage}}</a>
+    </li>
+</ul>

@@ -4,7 +4,8 @@
         <div class="clearfix"></div>
     </div>
     <p class="lead">This is the right place to discuss any upcoming competitions or ideas for new ones. Feel free to leave any suggestions for the future development of <i>Conquer Bulgaria.</i></p>
-    <div class="table-responsive">
+
+    <!--<div class="table-responsive">
         <table class="table forum table-striped">
             <thead>
                 <tr>
@@ -20,16 +21,14 @@
                     </th>
                     <th class="cell-stat-2x hidden-xs hidden-sm"></th>
                 </tr>
-            </thead>
+            </thead>-->
+    <app-post-row [post]="postsInfo.posts"> </app-post-row>
+    <!--<tbody></tbody>
             <tbody>
                 <app-post-row *ngFor="let post of postsInfo.posts | presentationPipe : 30" [post]="post"></app-post-row>
-            </tbody>
-        </table>
-    </div>
-    <ul class="pagination">
-        <app-pagination *ngFor="let page of postsInfo.pageCount | toNumberArray" [page]="page">
-        </app-pagination>
-    </ul>
+            </tbody>-->
+    <!--</table>-->
+    <!--</div>-->
+    <app-pagination [page]="postsInfo.pageCount">
+    </app-pagination>
 </div>
-
-<!--ul.pagination - for(let i = 1; i <=r esult.params.pages; i+=1 ) li if result.params.page===i a.disabled(href="/forum?page=" + i)=i else a(href="/forum?page=" + i)=i-->
