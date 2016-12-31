@@ -38,6 +38,6 @@ export class AppComponent {
   }
 
    public onSearch(): void {
-            this._router.navigateByUrl(`/search/?value=${this.searchParam}`);
+            this._router.navigateByUrl(`/search?value=${this.searchParam}`);
     }
 }

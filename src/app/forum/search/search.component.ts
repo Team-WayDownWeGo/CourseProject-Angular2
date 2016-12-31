@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+
+import { ForumService } from '../../services/forum.service';
 
 @Component({
   selector: 'app-search',
@@ -7,9 +10,23 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SearchComponent implements OnInit {
 
-  constructor() { }
+  public posts: any[];
+  public params: any;
+  constructor(private _service: ForumService, private _route: ActivatedRoute ) { }
 
-  ngOnInit() {
+ ngOnInit() {
+   this.params = (<any>this._route.queryParams)._value;
+
+    this._service
+      .getFilteredPost(this.params)
+      .subscribe(response => {
+                if (response.message === 'error') {
+                    
+                } else {
+                    this.posts = response;
+                }
+            },
+            err => console.log(err));
   }
 
 }

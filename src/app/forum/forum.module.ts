@@ -14,6 +14,7 @@ import { PresentationPipe } from '../pipes/presentation.pipe';
 import { SinglePostCommentComponent } from './single-post/single-post-comment/single-post-comment.component';
 import { ToNumberArrayPaginationPipe } from '../pipes/transform-to-array.pipe';
 import { FilterPipe } from '../pipes/filter.pipe';
+import { SearchComponent } from './search/search.component';
 
 @NgModule({
   imports: [
@@ -22,7 +23,7 @@ import { FilterPipe } from '../pipes/filter.pipe';
      FormsModule,
       ReactiveFormsModule
   ],
-  declarations: [FilterPipe, PaginationComponent, CreatePostComponent, SinglePostComponent, SinglePostCommentComponent, PostRowComponent, ListPostsComponent, ToNumberArrayPaginationPipe, PresentationPipe ],
+  declarations: [SearchComponent, FilterPipe, PaginationComponent, CreatePostComponent, SinglePostComponent, SinglePostCommentComponent, PostRowComponent, ListPostsComponent, ToNumberArrayPaginationPipe, PresentationPipe ],
   providers: [ForumService, NotificationsService],
   exports: [PostRowComponent]
 })

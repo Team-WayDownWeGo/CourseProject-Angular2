@@ -2,7 +2,7 @@ import { Routes } from '@angular/router';
 
 import { RegisterComponent, LoginComponent } from './auth';
 import { ListCategoriesComponent } from './category/list-categories/list-categories.component';
-import { CreatePostComponent, SinglePostComponent, ListPostsComponent } from './forum';
+import { CreatePostComponent, SinglePostComponent, ListPostsComponent, SearchComponent } from './forum';
 import { AuthGuard } from './guard/guard';
 import { PublicProfileComponent } from './users/public-profile/public-profile/public-profile.component';
 import { ProfileNavComponent } from './profile/profile-nav/profile-nav.component';
@@ -10,7 +10,6 @@ import { ProfileHomeComponent } from './profile/profile-home/profile-home.compon
 import { ProfileEditComponent } from './profile/profile-edit/profile-edit.component';
 import { ProfileInboxComponent } from './profile/profile-inbox/profile-inbox.component';
 import { ProfileOutboxComponent } from './profile/profile-outbox/profile-outbox.component';
-
 
 
 export const APP_ROUTES: Routes = [
@@ -41,6 +40,7 @@ export const APP_ROUTES: Routes = [
     },//, canActivate: [AuthGuard] },
     { path: 'category', component: ListCategoriesComponent },
     { path: 'users/:username', component: PublicProfileComponent },
+    { path: 'search', component: SearchComponent },
     // TODO: error page. wrong urls go to homepage 
     { path: '**', redirectTo: '' }
 ]
