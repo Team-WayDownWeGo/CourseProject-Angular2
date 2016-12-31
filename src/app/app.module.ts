@@ -21,6 +21,8 @@ import { ProfileEditComponent } from './profile/profile-edit/profile-edit.compon
 import { ProfileInboxComponent } from './profile/profile-inbox/profile-inbox.component';
 import { ProfileOutboxComponent } from './profile/profile-outbox/profile-outbox.component';
 import { CategoryService } from './services/category.service';
+import { CategoryModule } from './category/category.module';
+// import { SingleCategoryComponent } from './single-category/single-category.component';
 // import { ListCategoriesComponent } from './list-categories/list-categories.component';
 // import { PaginationComponent } from './pagination/pagination.component';
 // import { ListPostsComponent } from './list-posts/list-posts.component';
@@ -39,6 +41,7 @@ import { CategoryService } from './services/category.service';
     ProfileEditComponent,
     ProfileInboxComponent,
     ProfileOutboxComponent,
+    // SingleCategoryComponent,
     // ListCategoriesComponent,
     // PaginationComponent
     // ListPostsComponent,
@@ -52,6 +55,7 @@ import { CategoryService } from './services/category.service';
     AuthModule,
     ForumModule,
     FormsModule,
+    CategoryModule,
     SimpleNotificationsModule
   ],
   providers: [AuthService, UserService, HttpOptionsService, AuthGuard, CategoryService],

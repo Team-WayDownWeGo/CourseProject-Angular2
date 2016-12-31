@@ -27,7 +27,6 @@ export class ListPostsComponent implements OnInit {
     this._service
       .getAllPosts(this.page)
       .subscribe(response => {
-                  
                 if (response.message === 'error') {
                     this._notificationService.error('Error', `${response.message.text}`);
                 } else {

@@ -1,6 +1,7 @@
 import { Routes } from '@angular/router';
 
 import { RegisterComponent, LoginComponent } from './auth';
+import { ListCategoriesComponent } from './category/list-categories/list-categories.component';
 import { CreatePostComponent, SinglePostComponent, ListPostsComponent } from './forum';
 import { AuthGuard } from './guard/guard';
 import { PublicProfileComponent } from './users/public-profile/public-profile/public-profile.component';
@@ -38,6 +39,7 @@ export const APP_ROUTES: Routes = [
             }
         ]
     },//, canActivate: [AuthGuard] },
+    { path: 'category', component: ListCategoriesComponent },
     { path: 'users/:username', component: PublicProfileComponent },
     // TODO: error page. wrong urls go to homepage 
     { path: '**', redirectTo: '' }
