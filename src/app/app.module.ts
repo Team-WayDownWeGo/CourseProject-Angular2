@@ -22,14 +22,6 @@ import { ProfileInboxComponent } from './profile/profile-inbox/profile-inbox.com
 import { ProfileOutboxComponent } from './profile/profile-outbox/profile-outbox.component';
 import { CategoryService } from './services/category.service';
 import { CategoryModule } from './category/category.module';
-// import { SingleCategoryComponent } from './single-category/single-category.component';
-// import { ListCategoriesComponent } from './list-categories/list-categories.component';
-// import { PaginationComponent } from './pagination/pagination.component';
-// import { ListPostsComponent } from './list-posts/list-posts.component';
-// import { PostRowComponent } from './post-row/post-row.component';
-// import { SinglePostComponent } from './forum/single-post/single-post.component';
-// import { SinglePostCommentComponent } from './forum/single-post/single-post-comment/single-post-comment.component';
-
 
 @NgModule({
   bootstrap: [AppComponent],
@@ -41,13 +33,7 @@ import { CategoryModule } from './category/category.module';
     ProfileEditComponent,
     ProfileInboxComponent,
     ProfileOutboxComponent,
-    // SingleCategoryComponent,
-    // ListCategoriesComponent,
-    // PaginationComponent
-    // ListPostsComponent,
-    // PostRowComponent,
-    // SinglePostComponent,
-    // SinglePostCommentComponent,
+    ProfileOutboxComponent
   ],
   imports: [
     BrowserModule,
@@ -58,6 +44,6 @@ import { CategoryModule } from './category/category.module';
     CategoryModule,
     SimpleNotificationsModule
   ],
-  providers: [AuthService, UserService, HttpOptionsService, AuthGuard, CategoryService],
+  providers: [AuthService, UserService, HttpOptionsService, AuthGuard, CategoryService]
 })
 export class AppModule { }

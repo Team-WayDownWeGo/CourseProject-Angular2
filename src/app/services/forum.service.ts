@@ -14,17 +14,17 @@ export class ForumService {
   });
   api_url: string = 'http://localhost:3001/forum';
 
-  constructor(private http: Http) {}
+  constructor(private http: Http) { }
 
   private getJson(response: Response) {
     return response.json();
   }
 
-   private checkForError(response: Response): Response | Observable<any> {
+  private checkForError(response: Response): Response | Observable<any> {
     if (response.status >= 200 && response.status < 300) {
       return response;
     } else {
-      var error = new Error(response.statusText)
+      let error = new Error(response.statusText)
       error['response'] = response;
       console.error(error);
       throw error;
@@ -32,14 +32,14 @@ export class ForumService {
   }
 
   createPost(post): Observable<any> {
-   return this.http.post(
+    return this.http.post(
       `${this.api_url}/create`,
       JSON.stringify(post),
       { headers: this.headers }
     )
-    .map(this.checkForError)
-    .catch(err => Observable.throw(err))
-    .map(this.getJson)
+      .map(this.checkForError)
+      .catch(err => Observable.throw(err))
+      .map(this.getJson);
   }
 
   addCommentToPost({content, postId}): Observable<any> {
@@ -48,19 +48,19 @@ export class ForumService {
       JSON.stringify(content),
       { headers: this.headers }
     )
-    .map(this.checkForError)
-    .catch(err => Observable.throw(err))
-    .map(this.getJson)
+      .map(this.checkForError)
+      .catch(err => Observable.throw(err))
+      .map(this.getJson);
   }
 
   getPost(postId): Observable<any> {
-     return this.http.get(
+    return this.http.get(
       `${this.api_url}/${postId}`,
       { headers: this.headers }
     )
-    .map(this.checkForError)
-    .catch(err => Observable.throw(err))
-    .map(this.getJson)
+      .map(this.checkForError)
+      .catch(err => Observable.throw(err))
+      .map(this.getJson);
   }
 
   likePost(postId): Observable<any> {
@@ -69,35 +69,35 @@ export class ForumService {
       null,
       { headers: this.headers }
     )
-    .map(this.checkForError)
-    .catch(err => Observable.throw(err))
-    .map(this.getJson)
+      .map(this.checkForError)
+      .catch(err => Observable.throw(err))
+      .map(this.getJson);
   }
 
-   unlikePost(postId): Observable<any> {
+  unlikePost(postId): Observable<any> {
     return this.http.put(
       `${this.api_url}/${postId}/unlike`,
       null,
       { headers: this.headers }
     )
-    .map(this.checkForError)
-    .catch(err => Observable.throw(err))
-    .map(this.getJson)
+      .map(this.checkForError)
+      .catch(err => Observable.throw(err))
+      .map(this.getJson);
   }
 
   likeComment({postId, commentId}): Observable<any> {
 
     console.log(postId);
     console.log(commentId);
-    
+
     return this.http.put(
       `${this.api_url}/${postId}/comment/${commentId}/like`,
       null,
       { headers: this.headers }
     )
-    .map(this.checkForError)
-    .catch(err => Observable.throw(err))
-    .map(this.getJson)
+      .map(this.checkForError)
+      .catch(err => Observable.throw(err))
+      .map(this.getJson);
   }
 
   unLikeComment({postId, commentId}): Observable<any> {
@@ -106,18 +106,28 @@ export class ForumService {
       null,
       { headers: this.headers }
     )
-    .map(this.checkForError)
-    .catch(err => Observable.throw(err))
-    .map(this.getJson)
+      .map(this.checkForError)
+      .catch(err => Observable.throw(err))
+      .map(this.getJson);
   }
 
   getAllPosts(page): Observable<any> {
-     return this.http.get(
+    return this.http.get(
       `${this.api_url}/all/${page}`,
       { headers: this.headers }
     )
-    .map(this.checkForError)
-    .catch(err => Observable.throw(err))
-    .map(this.getJson)
+      .map(this.checkForError)
+      .catch(err => Observable.throw(err))
+      .map(this.getJson);
   }
-}   
+
+  getAllUserPosts(username): Observable<any> {
+    return this.http.get(
+      `${this.api_url}/all-user-posts/${username}`,
+      { headers: this.headers }
+    )
+      .map(this.checkForError)
+      .catch(err => Observable.throw(err))
+      .map(this.getJson);
+  }
+} 

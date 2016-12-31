@@ -20,7 +20,7 @@ export const APP_ROUTES: Routes = [
     { path: 'forum/post/:id', component: SinglePostComponent },
     { path: 'forum/:page', component: ListPostsComponent },
     {
-        path: 'profile', component: ProfileNavComponent, children: [
+        path: 'profile', component: ProfileNavComponent, canActivate: [AuthGuard], children: [
             {
                 path: 'home',
                 component: ProfileHomeComponent
