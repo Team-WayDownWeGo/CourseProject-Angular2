@@ -10,7 +10,7 @@
     <div class="profile-bio" *ngIf="!sendButtonClicked">
       <p>
         About: {{username}} has created <strong>{{userPostsCount}}</strong> posts.
-        <span *ngIf="userPostsCount > 0">Check em out?</span>
+        <span *ngIf="userPostsCount > 0"><a [routerLink]="['/users/gosho']">Check em out?</a></span>
       </p>
     </div>
     <div *ngIf="isUserLoggedIn" class="profile-social-links">

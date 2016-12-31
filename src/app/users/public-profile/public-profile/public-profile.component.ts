@@ -7,6 +7,7 @@ import { Message } from './../../model/message-model';
 import { NotificationsService } from './../../../../../node_modules/angular2-notifications';
 import { AuthService } from './../../../auth/auth.service';
 import { ForumService } from './../../../services/forum.service';
+import { SinglePostComponent } from './../../../forum/single-post/single-post.component';
 
 
 @Component({
@@ -29,7 +30,7 @@ export class PublicProfileComponent implements OnInit {
   public isUserLoggedIn: boolean;
   public message: Message;
   public displayHeader: Boolean;
-  private _userPosts: any;
+  public userPosts: any = new Array();
   public userPostsCount: Number = 0;
 
   public options = {
@@ -54,7 +55,6 @@ export class PublicProfileComponent implements OnInit {
     this._router = router;
     this._authService = authService;
     this._forumService = forumService;
-    this._userPosts = new Array();
   }
 
   private getUser() {
@@ -101,8 +101,9 @@ export class PublicProfileComponent implements OnInit {
     let username = this._params._value.username;
 
     this._forumService.getAllUserPosts(this._username).subscribe(response => {
-      this._userPosts = response;
-      this.userPostsCount = this._userPosts.length;
+      this.userPosts = response;
+      this.userPostsCount = this.userPosts.length;
+      console.log(this.userPosts);
     });
   }
 

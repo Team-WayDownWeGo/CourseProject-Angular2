@@ -24,7 +24,7 @@ import { CategoryService } from './services/category.service';
 // import { ListCategoriesComponent } from './list-categories/list-categories.component';
 // import { PaginationComponent } from './pagination/pagination.component';
 // import { ListPostsComponent } from './list-posts/list-posts.component';
-// import { PostRowComponent } from './post-row/post-row.component';
+// import { ListPostsComponent } from './forum/list-posts/list-posts.component';
 // import { SinglePostComponent } from './forum/single-post/single-post.component';
 // import { SinglePostCommentComponent } from './forum/single-post/single-post-comment/single-post-comment.component';
 
@@ -38,7 +38,8 @@ import { CategoryService } from './services/category.service';
     ProfileHomeComponent,
     ProfileEditComponent,
     ProfileInboxComponent,
-    ProfileOutboxComponent,
+    ProfileOutboxComponent
+    
     // ListCategoriesComponent,
     // PaginationComponent
     // ListPostsComponent,
@@ -54,6 +55,6 @@ import { CategoryService } from './services/category.service';
     FormsModule,
     SimpleNotificationsModule
   ],
-  providers: [AuthService, UserService, HttpOptionsService, AuthGuard, CategoryService],
+  providers: [AuthService, UserService, HttpOptionsService, AuthGuard, CategoryService]
 })
 export class AppModule { }
