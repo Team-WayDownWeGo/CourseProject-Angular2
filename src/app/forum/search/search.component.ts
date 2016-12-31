@@ -15,7 +15,7 @@ export class SearchComponent implements OnInit {
   constructor(private _service: ForumService, private _route: ActivatedRoute ) { }
 
  ngOnInit() {
-   this.params = (<any>this._route.queryParams)._value;
+   this.params = (<any>this._route.queryParams)._value.value;
 
     this._service
       .getFilteredPost(this.params)
@@ -24,6 +24,7 @@ export class SearchComponent implements OnInit {
                     
                 } else {
                     this.posts = response;
+                    console.log(this.posts);
                 }
             },
             err => console.log(err));

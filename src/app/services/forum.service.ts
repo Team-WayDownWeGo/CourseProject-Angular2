@@ -64,6 +64,7 @@ export class ForumService {
   }
 
   getFilteredPost(pattern): Observable<any> {
+    console.log(pattern);
      return this.http.get(
       `${this.api_url}/search/${pattern}`,
       { headers: this.headers }
