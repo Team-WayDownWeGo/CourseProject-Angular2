@@ -22,6 +22,7 @@ import { ProfileInboxComponent } from './profile/profile-inbox/profile-inbox.com
 import { ProfileOutboxComponent } from './profile/profile-outbox/profile-outbox.component';
 import { CategoryService } from './services/category.service';
 import { CategoryModule } from './category/category.module';
+import { SearchComponent } from './search/search.component';
 
 @NgModule({
   bootstrap: [AppComponent],
@@ -33,7 +34,8 @@ import { CategoryModule } from './category/category.module';
     ProfileEditComponent,
     ProfileInboxComponent,
     ProfileOutboxComponent,
-    ProfileOutboxComponent
+    ProfileOutboxComponent,
+    SearchComponent
   ],
   imports: [
     BrowserModule,

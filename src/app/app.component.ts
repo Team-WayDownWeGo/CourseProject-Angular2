@@ -16,11 +16,14 @@ export class AppComponent {
   private _router: Router;
   private _authService: AuthService;
 
+  public searchParam: string;
+
   constructor(userService: UserService, router: Router, authService: AuthService) {
     this._userService = userService;
     this._router = router;
     this._authService = authService;
     this.isUserLoggedIn = !!localStorage.getItem('user');
+    this.searchParam = '';
   }
 
   public ngOnInit() {
@@ -33,4 +36,8 @@ export class AppComponent {
     this._router.navigateByUrl('/');
     this._userService.setIsUserLoggedIn();
   }
+
+   public onSearch(): void {
+            this._router.navigateByUrl(`/search/?value=${this.searchParam}`);
+    }
 }

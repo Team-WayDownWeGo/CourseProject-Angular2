@@ -25,21 +25,20 @@ export class ListCategoriesComponent implements OnInit {
             err => console.log(err));
   }
 
-  ngAfterViewInit() {
+//   ngAfterViewInit() {
+// var divs = document.getElementsByClassName('col-md-4');
+// var body = document.getElementsByTagName('body')[0];
+// var dv;
+// for(var i = 0; i < divs.length; i += 1)
+// {
+//   console.log('---------');
+//     if ((i % 3) === 0) {
+//      dv = document.createElement('div');
+//       dv.setAttribute('class', 'row');
+//       divs[i].parentNode.insertBefore(dv, divs[i]);
+//     }
 
-var divs = document.getElementsByClassName('col-md-4');
-var body = document.getElementsByTagName('body')[0];
-var dv;
-for(var i = 0; i < divs.length; i += 1)
-{
-  console.log('---------');
-    if ((i % 3) === 0) {
-     dv = document.createElement('div');
-      dv.setAttribute('class', 'row');
-      divs[i].parentNode.insertBefore(dv, divs[i]);
-    }
-
-    dv.appendChild(divs[i]);
-}
-  }
+//     dv.appendChild(divs[i]);
+// }
+//   }
 }

@@ -63,6 +63,15 @@ export class ForumService {
       .map(this.getJson);
   }
 
+  getFilteredPost(pattern): Observable<any> {
+     return this.http.get(
+      `${this.api_url}/search/${pattern}`,
+      { headers: this.headers }
+    )
+      .map(this.checkForError)
+      .catch(err => Observable.throw(err))
+      .map(this.getJson);
+  }
   likePost(postId): Observable<any> {
     return this.http.put(
       `${this.api_url}/${postId}/like`,

@@ -13,6 +13,7 @@ import { PaginationComponent } from './list-posts/pagination/pagination.componen
 import { PresentationPipe } from '../pipes/presentation.pipe';
 import { SinglePostCommentComponent } from './single-post/single-post-comment/single-post-comment.component';
 import { ToNumberArrayPaginationPipe } from '../pipes/transform-to-array.pipe';
+import { FilterPipe } from '../pipes/filter.pipe';
 
 @NgModule({
   imports: [
@@ -21,7 +22,7 @@ import { ToNumberArrayPaginationPipe } from '../pipes/transform-to-array.pipe';
      FormsModule,
       ReactiveFormsModule
   ],
-  declarations: [ PaginationComponent, CreatePostComponent, SinglePostComponent, SinglePostCommentComponent, PostRowComponent, ListPostsComponent, ToNumberArrayPaginationPipe, PresentationPipe ],
+  declarations: [FilterPipe, PaginationComponent, CreatePostComponent, SinglePostComponent, SinglePostCommentComponent, PostRowComponent, ListPostsComponent, ToNumberArrayPaginationPipe, PresentationPipe ],
   providers: [ForumService, NotificationsService],
   exports: [PostRowComponent]
 })

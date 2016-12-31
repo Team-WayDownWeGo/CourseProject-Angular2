@@ -11,6 +11,11 @@
 
         <div class="collapse navbar-collapse" id="navigation-index">
             <ul class="nav navbar-nav navbar-right" *ngIf="!isUserLoggedIn">
+                <form class="navbar-form navbar-right" (ngSubmit)="onSearch()">
+                    <div class="form-group is-empty">
+                        <input class="form-control col-sm-8" type="text" placeholder="Search forum post" name="search" [(ngModel)]="searchParam">
+                        <span class="material-input"></span></div> <button class="glyphicon glyphicon-search"></button>
+                </form>
                 <li class="cd-log_reg home" [routerLinkActive]="['active']"><a class="cd-signin" [routerLink]="['/login']">Login</a></li>
                 <li class="cd-log_reg" [routerLinkActive]="['active']"><a class="cd-signup" [routerLink]="['/register']">Register</a></li>
                 <li class="cd-log_reg" [routerLinkActive]="['active']"><a class="cd-signup" [routerLink]="['/forum/create']">Forum</a></li>
