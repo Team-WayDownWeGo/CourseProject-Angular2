@@ -10,6 +10,7 @@ import { ProfileHomeComponent } from './profile/profile-home/profile-home.compon
 import { ProfileEditComponent } from './profile/profile-edit/profile-edit.component';
 import { ProfileInboxComponent } from './profile/profile-inbox/profile-inbox.component';
 import { ProfileOutboxComponent } from './profile/profile-outbox/profile-outbox.component';
+import { AllPostsByUserComponent } from './users/all-posts-by-user/all-posts-by-user.component';
 
 
 
@@ -40,6 +41,7 @@ export const APP_ROUTES: Routes = [
         ]
     },//, canActivate: [AuthGuard] },
     { path: 'category', component: ListCategoriesComponent },
+    { path: 'users/:username/posts', component: AllPostsByUserComponent },
     { path: 'users/:username', component: PublicProfileComponent },
     // TODO: error page. wrong urls go to homepage 
     { path: '**', redirectTo: '' }
