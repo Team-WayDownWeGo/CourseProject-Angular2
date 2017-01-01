@@ -21,6 +21,8 @@ export class ProfileInboxComponent implements OnInit {
 
     this._userService.getUserData(username).subscribe(user => {
         this.userDetails = user;
+        console.log('--------');
+        console.log(this.userDetails);
     });
   }
   ngOnInit() {

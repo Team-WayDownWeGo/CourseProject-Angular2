@@ -82,7 +82,7 @@ export class UserService {
     });
     return this._http.post(
       apiUrl,
-      JSON.stringify(message),
+      JSON.stringify({message, user: from}),
       { headers }
     )
       .map(this.checkForError)

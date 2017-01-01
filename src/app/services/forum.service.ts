@@ -98,9 +98,6 @@ export class ForumService {
 
   likeComment({postId, commentId, currentUser}): Observable<any> {
 
-    console.log(postId);
-    console.log(commentId);
-
     return this.http.put(
       `${this.api_url}/${postId}/comment/${commentId}/like`,
       JSON.stringify(currentUser),
