@@ -83,7 +83,9 @@ export class PublicProfileComponent implements OnInit {
   }
 
   private sendMessage() {
-    this._userService.sendMessageToUser(this._params._value.username, 'pesho', this.message)
+    let from = JSON.parse(localStorage.getItem('user')).result.username;
+
+    this._userService.sendMessageToUser(this._params._value.username, from, this.message)
       .subscribe(response => {
         this._notificationService.success('Success', 'Message sent',
           {

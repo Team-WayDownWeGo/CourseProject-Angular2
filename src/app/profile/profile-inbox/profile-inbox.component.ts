@@ -17,10 +17,10 @@ export class ProfileInboxComponent implements OnInit {
   }
 
   private getAllInBoxMessages() {
-    let username = 'aleluq';
+    let username = JSON.parse(localStorage.getItem('user')).result.username;
 
     this._userService.getUserData(username).subscribe(user => {
-      this.userDetails = user;
+        this.userDetails = user;
     });
   }
   ngOnInit() {

@@ -1,17 +1,21 @@
-<table class="table table-responsive">
-  <thead>
-    <tr>
-      <th>To</th>
-      <th>Message</th>
-      <th>When</th>
-    </tr>
-  </thead>
-  <p *ngIf="!userDetails.inbox">You don't have any messages.</p>
-  <tbody *ngIf="userDetails.inbox">
-    <tr *ngFor="let message of userDetails.inbox">
-      <td><a href="/users/{{message.user.username}}">{{message.user.username}}</a></td>
-      <td>{{message.message}}</td>
-      <td>{{message.date | date:'medium'}}</td>
-    </tr>
-  </tbody>
-</table>
+<div class="container">
+  <table class="table table-responsive">
+    <thead>
+      <tr>
+        <th>From</th>
+        <th>Message</th>
+        <th>When</th>
+      </tr>
+    </thead>
+    <p *ngIf="(userDetails.inbox | json) == '[]'">You don't have any messages.</p>
+    <tbody *ngIf="(userDetails.inbox | json) !== '[]'">
+      <tr *ngFor="let message of userDetails.inbox">
+        <td><a href="/users/{{message.user.username}}">{{message.user.username}}</a></td>
+        <td *ngIf="!message.message.isViewed"><strong>{{message.message}}</strong></td>
+        <td *ngIf="!message.message.isViewed"><strong>{{message.date | date:'medium'}}</strong></td>
+        <td *ngIf="message.message.isViewed">{{message.message}}</td>
+        <td *ngIf="message.message.isViewed">{{message.date | date:'medium'}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
