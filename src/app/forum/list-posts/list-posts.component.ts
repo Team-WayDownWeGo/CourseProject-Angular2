@@ -34,8 +34,6 @@ export class ListPostsComponent implements OnInit {
                   console.log(response);
                     let forumPostsMapped = response.forumPosts;
 
-
-                   
                     forumPostsMapped = forumPostsMapped.map(x => {
                       x.answerCount = x.answers.length;
                       return x;

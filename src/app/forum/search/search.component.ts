@@ -10,7 +10,7 @@ import { ForumService } from '../../services/forum.service';
 })
 export class SearchComponent implements OnInit {
 
-  public posts: any[];
+  public postsInfo: any;
   public params: any;
   constructor(private _service: ForumService, private _route: ActivatedRoute ) { }
 
@@ -23,8 +23,19 @@ export class SearchComponent implements OnInit {
                 if (response.message === 'error') {
                     
                 } else {
-                    this.posts = response;
-                    console.log(this.posts);
+                  //  this.posts = response;
+                  console.log('---------');
+                      console.log(response);
+                    let forumPostsMapped = response;
+
+                    forumPostsMapped = forumPostsMapped.map(x => {
+                      x.answerCount = x.answers.length;
+                      return x;
+                    })
+
+                    this.postsInfo = forumPostsMapped;
+                    console.log('asddasdsa');
+                    console.log(this.postsInfo);
                 }
             },
             err => console.log(err));
