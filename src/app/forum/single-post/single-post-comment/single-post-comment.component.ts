@@ -13,7 +13,10 @@ export class SinglePostCommentComponent implements OnInit {
  @Input() comment: any;
  likes: number;
  alreadyLiked: boolean;
-  constructor(private _forumService: ForumService, private _notificationService: NotificationsService) { }
+ private username: string;
+  constructor(private _forumService: ForumService, private _notificationService: NotificationsService) { 
+     this.username = JSON.parse(localStorage.getItem('user')).result.username;
+  }
 
   ngOnInit() {
     this.likes = this.comment.likes;
@@ -21,13 +24,15 @@ export class SinglePostCommentComponent implements OnInit {
   }
 
   onLike() {
-      console.log('like');
-      const commentId = this.comment._id,
-        postId = this.comment.postId;
-
       
+      const commentId = this.comment._id,
+        postId = this.comment.postId,
+          currentUser = {
+        user: this.username
+      };;
+
       this._forumService
-        .likeComment({commentId, postId })
+        .likeComment({commentId, postId, currentUser })
         .subscribe(response => {
                 if (response.message.type === 'error') {
                     this._notificationService.error('Error', `${response.message.text}`);
@@ -45,10 +50,13 @@ export class SinglePostCommentComponent implements OnInit {
   onUnlike() {
      console.log('like');
       const commentId = this.comment._id,
-        postId = this.comment.postId;
+        postId = this.comment.postId,
+          currentUser = {
+        user: this.username
+      };;
 
       this._forumService
-        .unLikeComment({commentId, postId })
+        .unLikeComment({commentId, postId, currentUser })
         .subscribe(response => {
                 if (response.message.type === 'error') {
                     this._notificationService.error('Error', `${response.message.text}`);
@@ -56,9 +64,6 @@ export class SinglePostCommentComponent implements OnInit {
                     this._notificationService.success('Success.', `Post liked`);
                     this.likes -= 1;
                     this.alreadyLiked = false;
-                    
-                    console.log(response);
-                   // setTimeout(() => this._router.navigateByUrl('/forum'), 1500);
                 }
             },
             err => console.log(err));

@@ -73,10 +73,11 @@ export class ForumService {
       .catch(err => Observable.throw(err))
       .map(this.getJson);
   }
-  likePost(postId): Observable<any> {
+
+  likePost(postId, user): Observable<any> {
     return this.http.put(
       `${this.api_url}/${postId}/like`,
-      null,
+      JSON.stringify(user),
       { headers: this.headers }
     )
       .map(this.checkForError)
@@ -84,10 +85,10 @@ export class ForumService {
       .map(this.getJson);
   }
 
-  unlikePost(postId): Observable<any> {
+  unlikePost(postId, user): Observable<any> {
     return this.http.put(
       `${this.api_url}/${postId}/unlike`,
-      null,
+      JSON.stringify(user),
       { headers: this.headers }
     )
       .map(this.checkForError)
@@ -95,14 +96,14 @@ export class ForumService {
       .map(this.getJson);
   }
 
-  likeComment({postId, commentId}): Observable<any> {
+  likeComment({postId, commentId, currentUser}): Observable<any> {
 
     console.log(postId);
     console.log(commentId);
 
     return this.http.put(
       `${this.api_url}/${postId}/comment/${commentId}/like`,
-      null,
+      JSON.stringify(currentUser),
       { headers: this.headers }
     )
       .map(this.checkForError)
@@ -110,10 +111,10 @@ export class ForumService {
       .map(this.getJson);
   }
 
-  unLikeComment({postId, commentId}): Observable<any> {
+  unLikeComment({postId, commentId, currentUser}): Observable<any> {
     return this.http.put(
       `${this.api_url}/${postId}/comment/${commentId}/unlike`,
-      null,
+      JSON.stringify(currentUser),
       { headers: this.headers }
     )
       .map(this.checkForError)

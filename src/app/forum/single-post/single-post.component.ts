@@ -75,10 +75,6 @@ export class SinglePostComponent implements OnInit {
 
                     x.postId = this.id;
                   });
-                  console.log('-------');
-            console.log(this.post.answers);
-                   // this._notificationService.success('Success.', `Thread is created.`);
-                   // setTimeout(() => this._router.navigateByUrl('/forum'), 1500);
                 }
             },
             err => console.log(err));
@@ -106,8 +102,11 @@ export class SinglePostComponent implements OnInit {
 
     public onPostLike(): void {
       console.log('like');
+      let currentUser = {
+        user: this.username
+      };
       this._service
-        .likePost(this.id)
+        .likePost(this.id, currentUser)
         .subscribe(response => {
                 if (response.message.type === 'error') {
                     this._notificationService.error('Error', `${response.message.text}`);
@@ -122,8 +121,11 @@ export class SinglePostComponent implements OnInit {
     }
 
     public onPostUnlike(): void{
+       let currentUser = {
+        user: this.username
+      };
       this._service
-        .unlikePost(this.id)
+        .unlikePost(this.id, currentUser)
         .subscribe(response => {
                 if (response.message.type === 'error') {
                     this._notificationService.error('Error', `${response.message.text}`);
