@@ -10,7 +10,6 @@ export class ProfileInboxComponent implements OnInit {
 
   private _userService: UserService;
   public userDetails: any;
-  public unreadMessages: number = 0;
 
   constructor(userService: UserService) {
     this._userService = userService;
@@ -22,10 +21,6 @@ export class ProfileInboxComponent implements OnInit {
 
     this._userService.getUserData(username).subscribe(user => {
       this.userDetails = user;
-      console.log('--------');
-      console.log(this.userDetails);
-      this.unreadMessages = user.inbox.filter(x => !x.isViewed).length;
-      console.log(this.unreadMessages);
     });
   }
 
