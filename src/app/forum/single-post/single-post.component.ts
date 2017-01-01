@@ -29,8 +29,8 @@ export class SinglePostComponent implements OnInit {
     private _notificationService: NotificationsService,
     private _router: Router,
     private _route: ActivatedRoute) {
+      this.username = JSON.parse(localStorage.getItem('user')).result.username;
       this.post = {};
-      //  this.username = JSON.parse(localStorage.getItem('user')).result.username;
       this.options = { timeOut: 1500, pauseOnHover: true, showProgressBar: true, animate: 'scale', position: ['right', 'bottom'] };
    }
 
@@ -42,6 +42,7 @@ export class SinglePostComponent implements OnInit {
 
     this.commentForm = this.fb.group({
       commentMessage: ['', [Validators.required, Validators.maxLength(200)]],
+      user: [this.username] 
     });
 
    this._service
@@ -57,13 +58,13 @@ export class SinglePostComponent implements OnInit {
                   this.post.username = response.user.username;
                   this.post.answerLength = response.answers.length;
 
-                  if (response.usersLiked.indexOf('Gosho') >= 0) {
+                  if (response.usersLiked.indexOf(this.username) >= 0) {
                     this.post.alreadyLiked = true;
                     this.alreadyLiked = true;
                   }
 
                   this.post.answers.forEach((x) => {
-                    if (x.usersLiked.indexOf('Pesho') >= 0)
+                    if (x.usersLiked.indexOf(this.username) >= 0)
                     {
                       x.alreadyLiked = true;
                     }
@@ -74,7 +75,8 @@ export class SinglePostComponent implements OnInit {
 
                     x.postId = this.id;
                   });
-
+                  console.log('-------');
+            console.log(this.post.answers);
                    // this._notificationService.success('Success.', `Thread is created.`);
                    // setTimeout(() => this._router.navigateByUrl('/forum'), 1500);
                 }
@@ -85,10 +87,11 @@ export class SinglePostComponent implements OnInit {
   public onCreateComment(): void {
     console.log('onCreatePost');
       const content = this.commentForm.value,
-        postId = this.id;
+        postId = this.id,
+        user = this.username;
         
         this._service
-            .addCommentToPost({content, postId})
+            .addCommentToPost({content, postId })
             .subscribe(response => {
                 if (response.message.type === 'error') {
                     this._notificationService.error('Error', `${response.message.text}`);

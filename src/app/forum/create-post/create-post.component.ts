@@ -24,7 +24,7 @@ export class CreatePostComponent implements OnInit {
     private fb: FormBuilder,
     private _notificationService: NotificationsService,
     private _router: Router) {
-      //  this.username = JSON.parse(localStorage.getItem('user')).result.username;
+      this.username = JSON.parse(localStorage.getItem('user')).result.username;
       this.options = { timeOut: 1500, pauseOnHover: true, showProgressBar: true, animate: 'scale', position: ['right', 'bottom'] };
    }
 
@@ -32,8 +32,8 @@ export class CreatePostComponent implements OnInit {
     this.postForm = this.fb.group({
       title: ['', [Validators.required, Validators.maxLength(60)]],
       description: ['', Validators.required],
-      category: [''] //,
-      // user: [this.username] 
+      category: [''],
+       user: [this.username] 
     });
 
     this._categoryService
@@ -57,6 +57,8 @@ export class CreatePostComponent implements OnInit {
 
   public onCreatePost(): void {
     console.log('onCreatePost');
+    console.log(this.postForm.value);
+    console.log('--------');
         this._service
             .createPost(this.postForm.value)
             .subscribe(response => {

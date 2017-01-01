@@ -35,7 +35,7 @@
                 <td>
                     <h3><a href="/forum/post/{{currentPost._id}}">{{currentPost.title}}</a><br><small>{{currentPost.description}}</small></h3>
                 </td>
-                <td class="text-center hidden-xs hidden-sm"><a href="/users/username">username</a></td>
+                <td class="text-center hidden-xs hidden-sm"><a href="/users/{{currentPost.user.username}}">{{currentPost.user.username}}</a></td>
                 <td class="text-center hidden-xs hidden-sm">{{currentPost.answerCount}}</td>
                 <td class="hidden-xs hidden-sm">
                     <p class="likes">Likes: <span id="post-likes-count">{{currentPost.likes}}</span></p>
