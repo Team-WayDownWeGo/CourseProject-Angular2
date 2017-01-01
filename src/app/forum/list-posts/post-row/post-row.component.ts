@@ -7,6 +7,7 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class PostRowComponent implements OnInit {
 
+  @Input() params: any;
   @Input() post: any;
   @Input() sortParam: any;
   constructor() { }

@@ -10,9 +10,21 @@
                     <h4>Created by</h4>
                 </th>
                 <th class="cell-stat text-center hidden-xs hidden-sm">
-                    <h4>Answers</h4>
+                    <h4 *ngIf="params">
+                        <a href="/search?value={{params}}&sort=answerCount"> Answers </a>
+                    </h4>
+                    <h4 *ngIf="!params">
+                        Answers
+                    </h4>
                 </th>
-                <th class="cell-stat-2x hidden-xs hidden-sm"></th>
+                <th class="cell-stat-2x hidden-xs hidden-sm">
+                    <h4 *ngIf="params">
+                        <a href="/search?value={{params}}&sort=likes"> Likes </a>
+                    </h4>
+                    <h4 *ngIf="!params">
+                        Likes
+                    </h4>
+                </th>
             </tr>
         </thead>
         <tbody>
