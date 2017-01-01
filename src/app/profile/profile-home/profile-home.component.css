@@ -1,0 +1,10 @@
+ul {
+    list-style-type: none;
+    float: left
+}
+.stats_value {
+    font-size: 45px;
+}
+.stats_unit {
+    padding: 5px;
+}

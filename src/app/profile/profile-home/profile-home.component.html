@@ -1,3 +1,26 @@
-<p>
-  profile-home works!
-</p>
+<div class="container">
+    <div class="col-md-4">
+      <h2>Hello, {{userDetails.firstName}}!</h2>
+    </div>
+    <div class="col-xs-offset-1">
+      <ul class="col-md-8">
+        <li class="pull-right text-center col-md-4">
+          <figure class="stats_unit">
+            <span class="stats_value center"><a href="/users/{{username}}/posts">{{posts}}</a></span>
+            <figcaption class="stats_caption">
+              <span>Posts</span>
+            </figcaption>
+          </figure>
+        </li>
+        <li class="pull-right text-center col-md-4">
+          <figure class="stats_unit">
+            <span class="stats_value center">{{likes}}</span>
+            <figcaption class="stats_caption">
+              <span>Likes received</span>
+            </figcaption>
+          </figure>
+        </li>
+        
+      </ul>
+    </div>
+</div>
