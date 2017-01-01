@@ -1,10 +1,10 @@
-<div class="navbar-inner">
-  <div class="container">
+<div class="container well well-sm whole-profile-nav">
+  <div class="navbar-inner">
     <ul class="nav nav-pills center-block">
       <li role="presentation"><a [routerLink]="['/profile/home']">Details</a></li>
       <li role="presentation"><a [routerLink]="['/profile/edit']">Edit</a></li>
       <li class="dropdown">
-        <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Messages<span class="button__badge">{{unreadMessages}}</span> <span class="caret"></span></a>
+        <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Messages<span *ngIf="unreadMessages > 0" class="button__badge">{{unreadMessages}}</span> <span class="caret"></span></a>
         <ul class="dropdown-menu">
           <li><a [routerLink]="['/profile/inbox']">Inbox</a></li>
           <li><a [routerLink]="['/profile/outbox']">Outbox</a></li>
@@ -13,6 +13,6 @@
     </ul>
   </div>
 </div>
-<div class="container">
+<div class="container well well-sm">
   <router-outlet></router-outlet>
 </div>

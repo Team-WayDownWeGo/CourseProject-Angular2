@@ -5,6 +5,7 @@
         <th>From</th>
         <th>Message</th>
         <th>When</th>
+        <th>Mark as read</th>
       </tr>
     </thead>
     <p *ngIf="(userDetails.inbox | json) == '[]'">You don't have any messages.</p>
@@ -15,6 +16,9 @@
         <td *ngIf="!message.isViewed"><strong>{{message.date | date:'medium'}}</strong></td>
         <td *ngIf="message.isViewed">{{message.message}}</td>
         <td *ngIf="message.isViewed">{{message.date | date:'medium'}}</td>
+        <td><button type="button" class="btn btn-sm">  test
+          <i class="fa fa-check green-check-mark" aria-hidden="true"></i>
+          </button></td>
       </tr>
     </tbody>
   </table>
