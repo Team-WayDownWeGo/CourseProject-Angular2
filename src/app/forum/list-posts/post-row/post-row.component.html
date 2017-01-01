@@ -18,7 +18,7 @@
         <tbody>
         </tbody>
         <tbody>
-            <tr id="post-info" *ngFor="let currentPost of post | presentationPipe : 30 | sort : {{}}">
+            <tr id="post-info" *ngFor="let currentPost of (post | presentationPipe : 30 | sort : sortParam)">
                 <td class="text-center"><i class="fa fa-comments-o fa-2x text-primary"></i></td>
                 <td>
                     <h3><a href="/forum/post/{{currentPost._id}}">{{currentPost.title}}</a><br><small>{{currentPost.description}}</small></h3>

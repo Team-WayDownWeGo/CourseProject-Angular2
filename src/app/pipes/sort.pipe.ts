@@ -11,10 +11,10 @@ export class SortPipe implements PipeTransform {
                         y[sortBy].toString()
                             .localeCompare(x[sortBy].toString()));
             } else {
-                sortBy = 'date';
                 return items.sort(function(a,b){
-                    a = new Date(b.date);
-                    b = new Date(a.date);
+                    a = new Date(a.date);
+                    b = new Date(b.date);
+                   
                  return  b - a;
                 });
         } 

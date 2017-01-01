@@ -12,11 +12,12 @@ export class SearchComponent implements OnInit {
 
   public postsInfo: any;
   public params: any;
+  public sort: any;
   constructor(private _service: ForumService, private _route: ActivatedRoute ) { }
 
  ngOnInit() {
    this.params = (<any>this._route.queryParams)._value.value;
-
+   this.sort = (<any>this._route.queryParams)._value.sort;
     this._service
       .getFilteredPost(this.params)
       .subscribe(response => {
