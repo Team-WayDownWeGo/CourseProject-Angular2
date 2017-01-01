@@ -1,13 +1,13 @@
 <table class="table table-responsive">
   <thead>
     <tr>
-      <th>To</th>
+      <th>From</th>
       <th>Message</th>
       <th>When</th>
     </tr>
   </thead>
-  <p *ngIf="!userDetails.inbox">You don't have any messages.</p>
-  <tbody *ngIf="userDetails.inbox">
+  <p *ngIf="(userDetails.inbox | json) == '[]'">You don't have any messages.</p>
+  <tbody *ngIf="(userDetails.inbox | json) !== '[]'">
     <tr *ngFor="let message of userDetails.inbox">
       <td><a href="/users/{{message.user.username}}">{{message.user.username}}</a></td>
       <td>{{message.message}}</td>
