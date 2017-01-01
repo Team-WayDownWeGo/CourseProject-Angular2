@@ -16,7 +16,8 @@
         <td *ngIf="!message.isViewed"><strong>{{message.date | date:'medium'}}</strong></td>
         <td *ngIf="message.isViewed">{{message.message}}</td>
         <td *ngIf="message.isViewed">{{message.date | date:'medium'}}</td>
-        <td><button type="button" class="btn btn-sm">  test
+        <td>
+          <button type="button">  
           <i class="fa fa-check green-check-mark" aria-hidden="true"></i>
           </button></td>
       </tr>
