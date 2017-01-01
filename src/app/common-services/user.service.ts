@@ -76,7 +76,6 @@ export class UserService {
 
   public sendMessageToUser(to: String, from: String, message: any): Observable<any> {
     let apiUrl = `${SINGLE_USER_URL}/user/message/${to}`;
-    console.log(apiUrl);
     let headers = new Headers({
       'Content-Type': 'application/json',
       Accept: 'application/json'

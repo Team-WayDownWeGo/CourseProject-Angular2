@@ -17,8 +17,7 @@ export class ProfileInboxComponent implements OnInit {
   }
 
   private getAllInBoxMessages() {
-    let userInfoFromLocalStorage = JSON.parse(localStorage.getItem('user'));
-    let username = userInfoFromLocalStorage.result.username;
+    let username = JSON.parse(localStorage.getItem('user')).result.username;
 
     this._userService.getUserData(username).subscribe(user => {
         this.userDetails = user;
@@ -26,6 +25,5 @@ export class ProfileInboxComponent implements OnInit {
   }
   ngOnInit() {
     this.getAllInBoxMessages();
-    console.log(this.userDetails.inbox);
   }
 }
