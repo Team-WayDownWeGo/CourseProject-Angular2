@@ -17,7 +17,7 @@ export class ProfileInboxComponent implements OnInit {
   }
 
   private getAllInBoxMessages() {
-    let username = 'pesho';
+    let username = 'aleluq';
 
     this._userService.getUserData(username).subscribe(user => {
       this.userDetails = user;
