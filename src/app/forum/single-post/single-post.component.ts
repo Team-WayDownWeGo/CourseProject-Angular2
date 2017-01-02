@@ -52,7 +52,6 @@ export class SinglePostComponent implements OnInit {
                     this._notificationService.error('Error', `${response.message.text}`);
                 } else {
                   
-                  
                   this.post = response;
                  this.likes = response.likes;
                   this.post.username = response.user.username;
@@ -89,11 +88,35 @@ export class SinglePostComponent implements OnInit {
         this._service
             .addCommentToPost({content, postId })
             .subscribe(response => {
-                if (response.message.type === 'error') {
+                if (!response) {
                     this._notificationService.error('Error', `${response.message.text}`);
                 } else {
                     this._notificationService.success('Success.', `Thread is created.`);
-                    console.log(response.id);
+            console.log(response);
+            console.log('---sadd-sdas');
+
+                     this.post = response;
+                 this.likes = response.likes;
+                  this.post.username = response.user.username;
+                  this.post.answerLength = response.answers.length;
+
+                  if (response.usersLiked.indexOf(this.username) >= 0) {
+                    this.post.alreadyLiked = true;
+                    this.alreadyLiked = true;
+                  }
+
+                  this.post.answers.forEach((x) => {
+                    if (x.usersLiked.indexOf(this.username) >= 0)
+                    {
+                      x.alreadyLiked = true;
+                    }
+                    else
+                    {
+                      x.alreadyLiked = false;
+                    }
+                    x.postId = this.id;
+                    
+                  });
                    // setTimeout(() => this._router.navigateByUrl('/forum'), 1500);
                 }
             },

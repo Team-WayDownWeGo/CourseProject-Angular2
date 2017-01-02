@@ -31,7 +31,6 @@ export class ListPostsComponent implements OnInit {
                     this._notificationService.error('Error', `${response.message.text}`);
                 } else {
 
-                  console.log(response);
                     let forumPostsMapped = response.forumPosts;
 
                     forumPostsMapped = forumPostsMapped.map(x => {
