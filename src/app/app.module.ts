@@ -13,7 +13,7 @@ import { UserService } from './common-services/user.service';
 import { HttpOptionsService } from './common-services/http-options.service';
 import { ForumModule, CreatePostComponent } from './forum';
 
-import { AuthGuard } from './guard/guard';
+import { AuthGuard } from './guard/auth.guard';
 import { PublicProfileComponent } from './users/public-profile/public-profile/public-profile.component';
 import { ProfileNavComponent } from './profile/profile-nav/profile-nav.component';
 import { ProfileHomeComponent } from './profile/profile-home/profile-home.component';

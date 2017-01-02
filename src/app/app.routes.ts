@@ -3,7 +3,7 @@ import { Routes } from '@angular/router';
 import { RegisterComponent, LoginComponent } from './auth';
 import { ListCategoriesComponent } from './category/list-categories/list-categories.component';
 import { CreatePostComponent, SinglePostComponent, ListPostsComponent, SearchComponent } from './forum';
-import { AuthGuard } from './guard/guard';
+import { AuthGuard } from './guard/auth.guard';
 import { PublicProfileComponent } from './users/public-profile/public-profile/public-profile.component';
 import { ProfileNavComponent } from './profile/profile-nav/profile-nav.component';
 import { ProfileHomeComponent } from './profile/profile-home/profile-home.component';
