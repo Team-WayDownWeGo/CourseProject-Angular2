@@ -10,7 +10,7 @@
         </div>
 
         <div class="collapse navbar-collapse" id="navigation-index">
-            <form class="navbar-form navbar-right" (ngSubmit)="onSearch()">
+            <form class="navbar-form navbar-right" (ngSubmit)="onSearch()" *ngIf="isUserLoggedIn">
                 <div class="form-group is-empty">
                     <input class="form-control col-sm-8" type="text" placeholder="Search forum post" name="search" [(ngModel)]="searchParam">
                     <span class="material-input"></span></div> <button class="glyphicon glyphicon-search"></button>

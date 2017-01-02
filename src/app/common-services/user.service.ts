@@ -100,4 +100,10 @@ export class UserService {
   }
 
 
+  public updateMessageToViewed(messageId: string): Observable<any> {
+    let url = `${SINGLE_USER_URL}/user/message/change-status/${messageId}`;
+    let requestOptions = this._httpOptionsService.getRequestOptions(true);
+    let data = JSON.stringify({});
+    return this._http.post(url, data, requestOptions).map((response: Response) => response.json());
+  }
 }
