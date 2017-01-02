@@ -45,5 +45,5 @@ export const APP_ROUTES: Routes = [
     { path: 'search', component: SearchComponent },
     { path: 'home', component: HomeComponent },
     // TODO: error page. wrong urls go to homepage 
-    { path: '**', redirectTo: '' }
+    { path: '**', redirectTo: '/home' }
 ]
