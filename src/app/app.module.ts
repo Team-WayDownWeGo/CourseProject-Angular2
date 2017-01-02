@@ -25,6 +25,7 @@ import { CategoryModule } from './category/category.module';
 import { AllPostsByUserComponent } from './users/all-posts-by-user/all-posts-by-user.component';
 import { BiggerFontDirective } from './directives/bigger-font-size.directive';
 import { FooterComponent } from './footer/footer.component';
+import { CreateCategoryComponent } from './create-category/create-category.component';
 
 @NgModule({
   bootstrap: [AppComponent],
@@ -39,7 +40,11 @@ import { FooterComponent } from './footer/footer.component';
     ProfileOutboxComponent,
     AllPostsByUserComponent,
     BiggerFontDirective,
+<<<<<<< HEAD
     FooterComponent
+=======
+    CreateCategoryComponent
+>>>>>>> beed9c51347c179d07fbe5a1034c1a2b3510cb3e
   ],
   imports: [
     BrowserModule,
