@@ -3,7 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule } from '@angular/router';
 import { AppComponent } from './app.component';
 import { APP_ROUTES } from './app.routes';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { SimpleNotificationsModule } from 'angular2-notifications';
 
@@ -46,7 +46,8 @@ import { BiggerFontDirective } from './directives/bigger-font-size.directive';
     ForumModule,
     FormsModule,
     CategoryModule,
-    SimpleNotificationsModule
+    SimpleNotificationsModule,
+    ReactiveFormsModule
   ],
   providers: [AuthService, UserService, HttpOptionsService, AuthGuard, CategoryService]
 })
