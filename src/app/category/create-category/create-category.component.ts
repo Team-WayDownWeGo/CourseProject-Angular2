@@ -38,9 +38,9 @@ export class CreateCategoryComponent implements OnInit {
   }
 
   ngOnInit() {
-    console.log('in init');
     this.form = this.fb.group({
-      category: ['', [Validators.required, Validators.maxLength(30)]],
+      categoryName: ['', [Validators.required, Validators.maxLength(30)]],
+      categoryDescription: ['', [Validators.maxLength(200)]],
       user: [this.username]
     })
   }

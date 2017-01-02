@@ -3,12 +3,14 @@ import { HttpModule } from '@angular/http'
 import { RouterModule, Router } from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
+import { SimpleNotificationsModule, NotificationsService } from '../../../node_modules/angular2-notifications';
+
+import { UserService } from './../common-services/user.service';
+import { CategoryService } from './../services/category.service';
+
 import { ListCategoriesComponent } from './list-categories/list-categories.component';
 import { SingleCategoryComponent } from './list-categories/single-category/single-category.component';
 import { CreateCategoryComponent } from './create-category/create-category.component';
-import { SimpleNotificationsModule, NotificationsService } from '../../../node_modules/angular2-notifications';
-import { UserService } from './../common-services/user.service';
-import { CategoryService } from './../services/category.service';
 
 @NgModule({
   imports: [

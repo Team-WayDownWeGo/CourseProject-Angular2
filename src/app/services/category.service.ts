@@ -34,8 +34,9 @@ export class CategoryService {
 
   createCategory(category): Observable<any> {
     let isAdmin = this.userService.getIsAdmin();
+    
 
-    if (isAdmin) {
+    if (!isAdmin) {
       return this.http.post(
         `${this.api_url}`,
         JSON.stringify(category),

@@ -41,14 +41,8 @@ export const APP_ROUTES: Routes = [
             }
         ]
     },
-    {
-        path: 'category', component: ListCategoriesComponent, children: [
-            {
-                path: 'create',
-                component: CreateCategoryComponent
-            }
-        ]
-    },
+    { path: 'category', component: ListCategoriesComponent },
+    { path: 'category/create', component: CreateCategoryComponent },
     { path: 'users/:username/posts', component: AllPostsByUserComponent },
     { path: 'users/:username', component: PublicProfileComponent },
     { path: 'search', component: SearchComponent },
