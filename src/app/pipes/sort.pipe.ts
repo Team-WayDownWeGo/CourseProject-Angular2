@@ -3,41 +3,24 @@ import { Pipe, PipeTransform } from '@angular/core';
     name: 'sort'
 })
 export class SortPipe implements PipeTransform {
-    transform(items: any[], sortBy?: string, take?: number) {
+    transform(items: any[], sortBy?: string) {
 
         if (items === undefined) {
-            return [];
+            return null;
         }
 
-        console.log('---------');
-        console.log(items);
-        console.log('---------');
-        
-        if (sortBy !== 'date') {
-                let result = items.sort(
+        if (sortBy) {
+                return items.sort(
                     (x, y) =>
                         y[sortBy].toString()
                             .localeCompare(x[sortBy].toString()));
-
-                        if (take) {
-                            return result.splice(0, take);
-                        } else {
-                            return result;
-                        }
             } else {
-                let result =  items.sort(function(a,b){
+                return items.sort(function(a,b){
                     a = new Date(a.date);
                     b = new Date(b.date);
                    
                  return  b - a;
                 });
-                
-                 if (take) {
-                            return result.splice(0, take);
-                        } else {
-                            return result;
-                        }
-
         } 
     }
 }

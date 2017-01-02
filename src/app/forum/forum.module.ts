@@ -18,6 +18,7 @@ import { SearchComponent } from './search/search.component';
 import { SortPipe } from '../pipes/sort.pipe';
 import { HomeComponent } from './home/home.component';
 import { MovingPostComponent } from './home/moving-post/moving-post.component';
+import { SplicePipe } from '../pipes/splice.pipe';
 
 @NgModule({
   imports: [
@@ -26,7 +27,7 @@ import { MovingPostComponent } from './home/moving-post/moving-post.component';
      FormsModule,
       ReactiveFormsModule
   ],
-  declarations: [MovingPostComponent, HomeComponent, SortPipe, SearchComponent, FilterPipe, PaginationComponent, CreatePostComponent, SinglePostComponent, SinglePostCommentComponent, PostRowComponent, ListPostsComponent, ToNumberArrayPaginationPipe, PresentationPipe ],
+  declarations: [SplicePipe, MovingPostComponent, HomeComponent, SortPipe, SearchComponent, FilterPipe, PaginationComponent, CreatePostComponent, SinglePostComponent, SinglePostCommentComponent, PostRowComponent, ListPostsComponent, ToNumberArrayPaginationPipe, PresentationPipe ],
   providers: [ForumService, NotificationsService],
   exports: [PostRowComponent]
 })
