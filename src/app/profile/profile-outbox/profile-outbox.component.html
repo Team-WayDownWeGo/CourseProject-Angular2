@@ -12,7 +12,7 @@
     <tbody *ngIf="(userDetails.outbox | json) !== '[]'">
       <tr *ngFor="let message of userDetails.outbox">
         <td><a href="/users/{{message.user.username}}">{{message.user.username}}</a></td>
-        <td>{{message.message}}</td>
+        <td biggerFont>{{message.message}}</td>
         <td>{{message.date | date:'medium'}}</td>
         <!--<td>
           <i *ngIf="message.isViewed" class="fa fa-eye" aria-hidden="true"></i>
