@@ -138,4 +138,14 @@ export class ForumService {
       .catch(err => Observable.throw(err))
       .map(this.getJson);
   }
+
+  getPostsForHomePage(): Observable<any> {
+    return this.http.get(
+      `${this.api_url}/getAll/homePage`,
+      { headers: this.headers }
+    )
+      .map(this.checkForError)
+      .catch(err => Observable.throw(err))
+      .map(this.getJson);
+  }
 } 

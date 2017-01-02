@@ -1,0 +1,116 @@
+<div class="wrapper">
+    <div class="header header-filter" style="background-image: url('http://www.devittinsurance.com/wp-content/uploads/2016/01/competition-banner-background.jpg')">
+        <div class="container nopadding">
+            <div class="row" style="margin-top: 100px">
+                <div class="center-heading">
+                    <h1 class="main-heading">Our top competitions</h1>
+                </div>
+            </div>
+            <div class="carousel slide" id="myCarousel" data-ride="carousel">
+                <ol class="carousel-indicators">
+                    <li class="" data-target="#myCarousel" data-slide-to="0"></li>
+                    <li data-target="#myCarousel" data-slide-to="1" class="active"></li>
+                    <li data-target="#myCarousel" data-slide-to="2" class=""></li>
+                    <li data-target="#myCarousel" data-slide-to="3" class=""></li>
+                    <li data-target="#myCarousel" data-slide-to="4" class=""></li>
+                </ol>
+
+
+                <div class="carousel-inner" role="listbox">
+                    <app-moving-post class="item" *ngFor="let post of posts | sort: sortBy: 5" [post]="post"></app-moving-post>
+                </div>
+                <a class="left carousel-control" role="button" data-slide="prev" href="#myCarousel"><span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span> <span class="sr-only">Previous</span></a>
+                <a class="right carousel-control" role="button" data-slide="next" href="#myCarousel">
+                    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true">
+                        </span> <span class="sr-only">Next</span></a>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="main main-raised">
+    <div class="container">
+        <div class="section text-center section-landing">
+            <div class="row">
+                <div class="col-md-8 col-md-offset-2">
+                    <h2 class="title">Conquer Bulgaria is your competitions online guide!</h2>
+                    <h5 class="description">Welcome to Bulagria’s Biggest Competitions Website, with over 100,000 members! Since 2016 we have set the standard in the way that competitions are communicated. First up, we are based here in Sofia, whilst a lot of so called ‘Aussie’
+                        sites are located all over the world. Secondly, your membership is Free. There are no special locked areas, anything on our site you can click away to your heart’s content. The reason the media comes to us is simple, we know the
+                        game better than anyone else. Competitions Guide is all about fresh competitions, delivered daily. We invite you to Join us - Free!</h5>
+                </div>
+            </div>
+
+            <div class="section text-center section-landing">
+                <div class="row">
+                    <div class="col-md-6">
+                        <h3 class="title home-list-title">Upcomming competitions</h3>
+                        <ul class="upcomming">
+                            <article class="search-result row">
+                                <div class="col-xs-4 col-sm-4">
+                                    <a class="home-thumbnail" href="#" title="Lorem ipsum"><img src="https://www.smashingmagazine.com/wp-content/uploads/2015/06/10-dithering-opt.jpg" alt="Competition image"></a>
+                                </div>
+                                <div class="col-xs-4 col-sm-4 right-border">
+                                    <ul class="meta-search">
+                                        <li><i class="glyphicon glyphicon-calendar"></i><span>Wed Jun 14 2017 00:00:00 GMT+0000 (UTC)</span></li>
+                                        <li><i class="glyphicon glyphicon-tags"></i><span> <a class="category-title">Climbing</a></span></li>
+                                    </ul>
+                                </div>
+                                <div class="col-xs-4 col-sm-4 excerpet">
+                                    <h3><a href="/competitions/5844a067cea03d00118d87ca">Climbing Musala </a></h3>
+                                    <p> Rila mountain</p>
+                                </div><span class="clearfix borda"></span>
+                            </article>
+                        </ul>
+                    </div>
+                    <div class="col-md-3 col-md-offset-2">
+                        <h3 class="title home-list-title">Top Posts</h3>
+                        <div class="table-responsive">
+                            <table class="table users-table">
+                                <thead class="thead-inverse">
+                                    <tr>
+                                        <th>#</th>
+                                        <th>Title</th>
+                                        <th>Likes</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr *ngFor="let post of posts | sort: 'likes' : 10;  let i = index">
+                                        <td>{{i}}</td>
+                                        <td><a href="/forum/{{post.title}}">{{post.title}}</a></td>
+                                        <td>{{post.likes}}</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer class="footer">
+        <div class="container">
+            <nav class="pull-left">
+                <ul>
+                    <li><a href="/home">Home</a></li>
+                    <li><a href="/categories">Categories</a></li>
+                    <li><a href="/users">Users</a></li>
+                    <li><a href="/forum">Forum</a></li>
+                    <li><a class="btn btn-simple btn-black btn-just-icon" href="https://twitter.com/CreativeTim" target="_blank"><i class="fa fa-twitter"></i></a></li>
+                    <li><a class="btn btn-simple btn-black btn-just-icon" href="https://www.facebook.com/CreativeTim" target="_blank"><i class="fa fa-facebook-square"></i></a></li>
+                    <li><a class="btn btn-simple btn-black btn-just-icon" href="https://www.instagram.com/CreativeTimOfficial" target="_blank"><i class="fa fa-instagram"></i></a></li>
+                </ul>
+            </nav>
+            <div class="copyright pull-right">© 2016, Telerik Academy<i class="fa fa-heart heart"></i> by Team Undefined42</div>
+        </div>
+    </footer>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js" type="text/javascript"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js" type="text/javascript"></script>
+    <script src="/static/bower_components/material-kit/assets/js/material.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/9.0.0/nouislider.min.js" type="text/javascript"></script>
+    <script src="/static/bower_components/material-kit/assets/js/bootstrap-datepicker.js" type="text/javascript"></script>
+    <script src="/static/bower_components/material-kit/assets/js/material-kit.js" type="text/javascript"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.1.3/toastr.min.js"></script>
+    <script src="/static/js/script.min.js" type="text/javascript"></script>
+    <script src="/static/js/utils/requester.min.js" type="text/javascript"></script>
+    <script src="/static/js/utils/notifier.min.js" type="text/javascript"></script>
+    <script src="/static/js/load-category.min.js" type="text/javascript"></script>
+</div>

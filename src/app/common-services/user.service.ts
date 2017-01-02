@@ -89,6 +89,4 @@ export class UserService {
       .catch(err => Observable.throw(err))
       .map(this.getJson);
   }
-
-
 }

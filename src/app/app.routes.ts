@@ -11,7 +11,7 @@ import { ProfileEditComponent } from './profile/profile-edit/profile-edit.compon
 import { ProfileInboxComponent } from './profile/profile-inbox/profile-inbox.component';
 import { ProfileOutboxComponent } from './profile/profile-outbox/profile-outbox.component';
 import { AllPostsByUserComponent } from './users/all-posts-by-user/all-posts-by-user.component';
-
+import { HomeComponent } from './forum/home/home.component';
 
 export const APP_ROUTES: Routes = [
     { path: 'login', component: LoginComponent },
@@ -43,6 +43,7 @@ export const APP_ROUTES: Routes = [
     { path: 'users/:username/posts', component: AllPostsByUserComponent },
     { path: 'users/:username', component: PublicProfileComponent },
     { path: 'search', component: SearchComponent },
+    { path: 'home', component: HomeComponent },
     // TODO: error page. wrong urls go to homepage 
     { path: '**', redirectTo: '' }
 ]
