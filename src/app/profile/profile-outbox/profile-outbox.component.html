@@ -5,7 +5,7 @@
         <th>From</th>
         <th>Message</th>
         <th>When</th>
-        <th>Seen</th>
+        <!--<th>Seen</th>-->
       </tr>
     </thead>
     <p *ngIf="(userDetails.outbox | json) == '[]'">No sent messages.</p>
@@ -14,9 +14,9 @@
         <td><a href="/users/{{message.user.username}}">{{message.user.username}}</a></td>
         <td>{{message.message}}</td>
         <td>{{message.date | date:'medium'}}</td>
-        <td>
+        <!--<td>
           <i *ngIf="message.isViewed" class="fa fa-eye" aria-hidden="true"></i>
-        </td>
+        </td>-->
       </tr>
     </tbody>
   </table>

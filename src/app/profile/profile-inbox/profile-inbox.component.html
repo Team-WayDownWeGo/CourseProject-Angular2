@@ -12,9 +12,9 @@
     <tbody *ngIf="(userDetails.inbox | json) !== '[]'">
       <tr *ngFor="let message of userDetails.inbox">
         <td><a href="/users/{{message.user.username}}">{{message.user.username}}</a></td>
-        <td *ngIf="!message.isViewed"><strong>{{message.message}}</strong></td>
+        <td biggerFont *ngIf="!message.isViewed"><strong>{{message.message}}</strong></td>
         <td *ngIf="!message.isViewed"><strong>{{message.date | date:'medium'}}</strong></td>
-        <td *ngIf="message.isViewed">{{message.message}}</td>
+        <td biggerFont *ngIf="message.isViewed">{{message.message}}</td>
         <td *ngIf="message.isViewed">{{message.date | date:'medium'}}</td>
         <td>
           <button type="button">  
