@@ -13,6 +13,7 @@ import { ProfileOutboxComponent } from './profile/profile-outbox/profile-outbox.
 import { AllPostsByUserComponent } from './users/all-posts-by-user/all-posts-by-user.component';
 import { HomeComponent } from './forum/home/home.component';
 
+
 export const APP_ROUTES: Routes = [
     { path: 'login', component: LoginComponent },
     { path: 'register', component: RegisterComponent },
