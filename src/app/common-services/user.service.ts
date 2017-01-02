@@ -19,6 +19,7 @@ export class UserService {
   private _isLoggedSubject: Subject<boolean>;
   private _isUserUpdated: boolean;
   private _isUserUpdatedSubject: Subject<boolean>;
+  private _isAdmin: boolean;
 
   constructor(http: Http, httpOptionsService: HttpOptionsService) {
     this._http = http;
@@ -45,6 +46,14 @@ export class UserService {
 
   public getIsUserUpdated(): Observable<boolean> {
     return this._isUserUpdatedSubject.asObservable();
+  }
+
+  public setIsAdmin(isAdmin: boolean): void {
+    this._isAdmin = isAdmin;
+  }
+
+  public getIsAdmin(): boolean {
+    return this._isAdmin;
   }
 
   public getUserData(username: string): Observable<any> {
@@ -82,11 +91,13 @@ export class UserService {
     });
     return this._http.post(
       apiUrl,
-      JSON.stringify({message, user: from}),
+      JSON.stringify({ message, user: from }),
       { headers }
     )
       .map(this.checkForError)
       .catch(err => Observable.throw(err))
       .map(this.getJson);
   }
+
+
 }
