@@ -51,7 +51,7 @@ export class LoginComponent implements OnInit {
           localStorage.setItem('user', JSON.stringify(result));
           this._userService.setIsUserLoggedIn();
           this._notificationsService.success('', result.success);
-          setTimeout(() => this._router.navigateByUrl('/profile'), 1500);
+          setTimeout(() => this._router.navigateByUrl('/profile/home'), 1500);
         }
       });
   }
