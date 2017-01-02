@@ -10,3 +10,14 @@
   top: 0;
   right: 0;
 }
+
+.whole-profile-nav {
+  background-color: #03a9f4;
+}
+.nav a {
+  color: white;
+}
+.dropdown-menu li a {
+  color: #03a9f4;
+}
+

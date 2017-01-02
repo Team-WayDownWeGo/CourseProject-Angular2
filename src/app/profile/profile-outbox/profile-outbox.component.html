@@ -1,3 +1,23 @@
-<p>
-  profile-outbox works!
-</p>
+<div class="container">
+  <table class="table table-responsive">
+    <thead>
+      <tr>
+        <th>From</th>
+        <th>Message</th>
+        <th>When</th>
+        <!--<th>Seen</th>-->
+      </tr>
+    </thead>
+    <p *ngIf="(userDetails.outbox | json) == '[]'">No sent messages.</p>
+    <tbody *ngIf="(userDetails.outbox | json) !== '[]'">
+      <tr *ngFor="let message of userDetails.outbox">
+        <td><a href="/users/{{message.user.username}}">{{message.user.username}}</a></td>
+        <td>{{message.message}}</td>
+        <td>{{message.date | date:'medium'}}</td>
+        <!--<td>
+          <i *ngIf="message.isViewed" class="fa fa-eye" aria-hidden="true"></i>
+        </td>-->
+      </tr>
+    </tbody>
+  </table>
+</div>

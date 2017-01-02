@@ -23,6 +23,7 @@ import { ProfileOutboxComponent } from './profile/profile-outbox/profile-outbox.
 import { CategoryService } from './services/category.service';
 import { CategoryModule } from './category/category.module';
 import { AllPostsByUserComponent } from './users/all-posts-by-user/all-posts-by-user.component';
+import { BiggerFontDirective } from './directives/bigger-font-size.directive';
 
 @NgModule({
   bootstrap: [AppComponent],
@@ -35,7 +36,8 @@ import { AllPostsByUserComponent } from './users/all-posts-by-user/all-posts-by-
     ProfileInboxComponent,
     ProfileOutboxComponent,
     ProfileOutboxComponent,
-    AllPostsByUserComponent
+    AllPostsByUserComponent,
+    BiggerFontDirective
   ],
   imports: [
     BrowserModule,

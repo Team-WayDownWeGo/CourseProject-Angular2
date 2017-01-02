@@ -38,7 +38,7 @@ export const APP_ROUTES: Routes = [
                 component: ProfileOutboxComponent
             }
         ]
-    },//, canActivate: [AuthGuard] },
+    },
     { path: 'category', component: ListCategoriesComponent },
     { path: 'users/:username/posts', component: AllPostsByUserComponent },
     { path: 'users/:username', component: PublicProfileComponent },
