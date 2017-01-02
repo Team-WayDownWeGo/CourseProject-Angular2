@@ -1,31 +1,60 @@
-# Courseproject
+# Angular Overflow
+_Single-page Application with Angular 2_
 
-This project was generated with [angular-cli](https://github.com/angular/angular-cli) version 1.0.0-beta.22-1.
+Visit it at: https://github.com/Team-WayDownWeGo/CourseProject-Angular2
 
-## Development server
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+## Team members
+| Name | [Student system](https://telerikacademy.com) username | [Github](https://github.com) username|
+|:----|:-----------------------|:-----------------------------|
+| Todor Georgiev  | Toshe7o      | georgievtodor  |
+| Boyko Bonev | BoykoBonev    | BoykoBonev      |
+| Martin Stoyanov   | martinst1 | martinst1   |
 
-## Code scaffolding
+## Documentation
+### Routes
+- Public part
+    - home
+    - forum
+    - forum/:id
+    - search
+    - categories
+    - users/:username/posts
+    - users/:username
+    - login
+    - register
+    - not found
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive/pipe/service/class`.
+- Private part
+    - profile/home    
+    - profile/edit 
+    - profile/inbox
+    - profile/outbox
+    - forum/create
+    - category/create
 
-## Build
+### Pipes
+1. Filter posts 
+2. Presentate posts
+3. Sort posts
+4. Splice posts
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `-prod` flag for a production build.
+### Directives
+1. Bigger font size
 
-## Running unit tests
+### Gaurds
+1. Auth gaurd
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+### Partial components
+1. Single category
+2. Moving post
+3. Post row
+4. Pagination
+5. Single post comment
 
-## Running end-to-end tests
+### Back-end
+Node.js server
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-Before running the tests make sure you are serving the app via `ng serve`.
+https://github.com/Team-WayDownWeGo/CourseProject-Server
 
-## Deploying to Github Pages
 
-Run `ng github-pages:deploy` to deploy to Github Pages.
 
-## Further help
-
-To get more help on the `angular-cli` use `ng --help` or go check out the [Angular-CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
