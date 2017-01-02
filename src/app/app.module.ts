@@ -40,11 +40,8 @@ import { CreateCategoryComponent } from './create-category/create-category.compo
     ProfileOutboxComponent,
     AllPostsByUserComponent,
     BiggerFontDirective,
-<<<<<<< HEAD
-    FooterComponent
-=======
+    FooterComponent,
     CreateCategoryComponent
->>>>>>> beed9c51347c179d07fbe5a1034c1a2b3510cb3e
   ],
   imports: [
     BrowserModule,
