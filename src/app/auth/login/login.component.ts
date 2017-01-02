@@ -50,6 +50,7 @@ export class LoginComponent implements OnInit {
         } else {
           localStorage.setItem('user', JSON.stringify(result));
           this._userService.setIsUserLoggedIn();
+          this._userService.setIsAdmin(result.isAdmin);
           this._notificationsService.success('', result.success);
           setTimeout(() => this._router.navigateByUrl('/profile/home'), 1500);
         }

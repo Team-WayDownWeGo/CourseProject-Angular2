@@ -10,10 +10,10 @@ import { RegisterComponent } from './register/register.component';
 
 import { AuthService } from './auth.service';
 import { HttpOptionsService } from './../common-services/http-options.service'
-import {  UserService } from './../common-services/user.service';
+import { UserService } from './../common-services/user.service';
 
 @NgModule({
-    declarations: [ LoginComponent, RegisterComponent ],
+    declarations: [LoginComponent, RegisterComponent],
     imports: [
         HttpModule,
         FormsModule,
@@ -23,8 +23,8 @@ import {  UserService } from './../common-services/user.service';
         CommonModule
     ],
     exports: [],
-    providers: [ AuthService, UserService, NotificationsService, HttpOptionsService ]
+    providers: [AuthService, UserService, NotificationsService, HttpOptionsService]
 })
 export class AuthModule {
-    
+
 }

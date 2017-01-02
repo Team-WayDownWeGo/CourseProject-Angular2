@@ -2,6 +2,7 @@ import { Routes } from '@angular/router';
 
 import { RegisterComponent, LoginComponent } from './auth';
 import { ListCategoriesComponent } from './category/list-categories/list-categories.component';
+import { CreateCategoryComponent } from './category/create-category/create-category.component';
 import { CreatePostComponent, SinglePostComponent, ListPostsComponent, SearchComponent } from './forum';
 import { AuthGuard } from './guard/auth.guard';
 import { PublicProfileComponent } from './users/public-profile/public-profile/public-profile.component';
@@ -39,7 +40,14 @@ export const APP_ROUTES: Routes = [
             }
         ]
     },
-    { path: 'category', component: ListCategoriesComponent },
+    {
+        path: 'category', component: ListCategoriesComponent, children: [
+            {
+                path: 'create',
+                component: CreateCategoryComponent
+            }
+        ]
+    },
     { path: 'users/:username/posts', component: AllPostsByUserComponent },
     { path: 'users/:username', component: PublicProfileComponent },
     { path: 'search', component: SearchComponent },

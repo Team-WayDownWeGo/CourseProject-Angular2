@@ -24,10 +24,10 @@ import { SplicePipe } from '../pipes/splice.pipe';
   imports: [
     CommonModule,
     RouterModule,
-     FormsModule,
-      ReactiveFormsModule
+    FormsModule,
+    ReactiveFormsModule
   ],
-  declarations: [SplicePipe, MovingPostComponent, HomeComponent, SortPipe, SearchComponent, FilterPipe, PaginationComponent, CreatePostComponent, SinglePostComponent, SinglePostCommentComponent, PostRowComponent, ListPostsComponent, ToNumberArrayPaginationPipe, PresentationPipe ],
+  declarations: [SplicePipe, MovingPostComponent, HomeComponent, SortPipe, SearchComponent, FilterPipe, PaginationComponent, CreatePostComponent, SinglePostComponent, SinglePostCommentComponent, PostRowComponent, ListPostsComponent, ToNumberArrayPaginationPipe, PresentationPipe],
   providers: [ForumService, NotificationsService],
   exports: [PostRowComponent]
 })
