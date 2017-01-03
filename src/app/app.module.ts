@@ -5,7 +5,7 @@ import { AppComponent } from './app.component';
 import { APP_ROUTES } from './app.routes';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
-import { SimpleNotificationsModule } from 'angular2-notifications';
+import { SimpleNotificationsModule, NotificationsService } from './../../node_modules/angular2-notifications';
 
 import { AuthModule } from './auth/auth.module';
 import { AuthService } from './auth/auth.service';
@@ -51,6 +51,6 @@ import { FooterComponent } from './footer/footer.component';
     SimpleNotificationsModule,
     ReactiveFormsModule
   ],
-  providers: [AuthService, UserService, HttpOptionsService, AuthGuard, CategoryService]
+  providers: [AuthService, UserService, HttpOptionsService, AuthGuard, CategoryService, NotificationsService]
 })
 export class AppModule { }

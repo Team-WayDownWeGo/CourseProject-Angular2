@@ -45,11 +45,12 @@ export class CreateCategoryComponent implements OnInit {
   public onCreateCategory(): void {
     this._service.createCategory(this.form.value)
       .subscribe(response => {
-        if (response.message.type === 'error') {
-          return this._notificationsService.error('Error', `${response.message.text}`);
-        }
+        // if (response.message.type === 'error') {
+        //   return this._notificationsService.error('Error', `Something happened`);
+        // }
 
         this._notificationsService.success('', 'Category created');
+        setTimeout(() => this._router.navigateByUrl('/category'), 1500);
       },
       err => console.log(err));
   }
