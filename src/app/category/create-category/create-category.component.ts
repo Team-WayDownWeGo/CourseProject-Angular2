@@ -12,7 +12,6 @@ import { UserService } from '../../common-services/user.service';
   styleUrls: ['./create-category.component.css']
 })
 export class CreateCategoryComponent implements OnInit {
-  public username: string;
   public form: FormGroup;
   public options: Object;
   public fb: FormBuilder;
@@ -33,7 +32,6 @@ export class CreateCategoryComponent implements OnInit {
     this._userService = userService;
     this._notificationsService = notificationsService;
     this._router = router;
-    this.username = JSON.parse(localStorage.getItem('user')).result.username;
     this.options = { timeOut: 1500, pauseOnHover: true, showProgressBar: true, animate: 'scale', position: ['right', 'bottom'] };
   }
 
@@ -41,7 +39,6 @@ export class CreateCategoryComponent implements OnInit {
     this.form = this.fb.group({
       categoryName: ['', [Validators.required, Validators.maxLength(30)]],
       categoryDescription: ['', [Validators.maxLength(200)]],
-      user: [this.username]
     })
   }
 
